@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr" data-theme="dark">
+<html lang="tr" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <name>Altın Taçlı R ve G Mücevher Logosu.png</name>
@@ -10,6 +10,23 @@
   @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
   :root {
+    --bg-primary: #fcfbfa;
+    --bg-secondary: #f4efe6;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f9f5ef;
+    --gold-light: #7a5a12;
+    --gold-main: #b89735;
+    --gold-dark: #8a6518;
+    --gold-gradient: linear-gradient(135deg, #d4af37 0%, #aa8228 100%);
+    --text-main: #2b2428;
+    --text-muted: #6e646a;
+    --border-gold: rgba(184, 151, 53, 0.35);
+    --border-subtle: rgba(0, 0, 0, 0.08);
+    --danger: #e74c3c;
+    --success: #2ecc71;
+  }
+
+  [data-theme="dark"] {
     --bg-primary: #0a0a0c;
     --bg-secondary: #121216;
     --bg-card: #18181f;
@@ -22,23 +39,6 @@
     --text-muted: #a0a5b1;
     --border-gold: rgba(212, 175, 55, 0.25);
     --border-subtle: rgba(255, 255, 255, 0.08);
-    --danger: #e74c3c;
-    --success: #2ecc71;
-  }
-
-  [data-theme="light"] {
-    --bg-primary: #fbf9f6;
-    --bg-secondary: #f2ede4;
-    --bg-card: #ffffff;
-    --bg-card-hover: #f7f3ed;
-    --gold-light: #8a6518;
-    --gold-main: #b89735;
-    --gold-dark: #8a6518;
-    --gold-gradient: linear-gradient(135deg, #d4af37 0%, #aa8228 100%);
-    --text-main: #2c252a;
-    --text-muted: #6e646a;
-    --border-gold: rgba(184, 151, 53, 0.35);
-    --border-subtle: rgba(0, 0, 0, 0.08);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -64,7 +64,7 @@
     background: var(--bg-primary);
     backdrop-filter: blur(15px);
     border-bottom: 1px solid var(--border-gold);
-    transition: all 0.3s ease; opacity: 0.96;
+    transition: all 0.3s ease; opacity: 0.98;
   }
 
   .nav-container {
@@ -72,43 +72,45 @@
     display: flex; align-items: center; justify-content: space-between; gap: 20px;
   }
 
-  .logo-wrapper { display: flex; align-items: center; gap: 15px; text-decoration: none; cursor: pointer; }
+  .logo-wrapper { display: flex; align-items: center; gap: 16px; text-decoration: none; cursor: pointer; }
+  
+  /* BÜYÜTÜLEN LOGO ALANI (75px) */
   .logo-img-box {
-    width: 55px; height: 55px; border-radius: 50%; padding: 2px;
+    width: 75px; height: 75px; border-radius: 50%; padding: 3px;
     background: var(--gold-gradient); display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
   }
   .logo-img-box img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; background: #ffffff; }
 
   .brand-title-group { display: flex; flex-direction: column; }
   .brand-title {
-    font-family: 'Cinzel', serif; font-size: 20px; font-weight: 700;
+    font-family: 'Cinzel', serif; font-size: 23px; font-weight: 700;
     background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     letter-spacing: 3px; line-height: 1.1;
   }
-  .brand-subtitle { font-size: 9px; letter-spacing: 4px; color: var(--text-muted); text-transform: uppercase; margin-top: 2px; }
+  .brand-subtitle { font-size: 10px; letter-spacing: 4px; color: var(--text-muted); text-transform: uppercase; margin-top: 3px; }
 
-  .nav-links { display: flex; align-items: center; gap: 6px; }
+  .nav-links { display: flex; align-items: center; gap: 8px; }
   .nav-links button.nav-tab-btn {
     background: transparent; border: none; text-decoration: none; color: var(--text-main);
-    font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
-    padding: 10px 15px; border-radius: 4px; transition: all 0.3s ease; cursor: pointer; font-family: 'Montserrat', sans-serif;
+    font-size: 12.5px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+    padding: 10px 16px; border-radius: 4px; transition: all 0.3s ease; cursor: pointer; font-family: 'Montserrat', sans-serif;
   }
   .nav-links button.nav-tab-btn:hover, .nav-links button.nav-tab-btn.active {
     color: var(--gold-light); background: rgba(212, 175, 55, 0.12);
   }
 
-  .header-actions { display: flex; align-items: center; gap: 10px; }
+  .header-actions { display: flex; align-items: center; gap: 12px; }
   .theme-toggle-btn {
     background: var(--bg-card); border: 1px solid var(--border-gold); color: var(--gold-light);
-    width: 38px; height: 38px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;
-    transition: 0.3s; font-size: 16px;
+    width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: 0.3s; font-size: 17px;
   }
   .theme-toggle-btn:hover { background: var(--gold-main); color: #0a0a0c; }
 
   .admin-trigger-btn {
     background: transparent; border: 1px solid var(--border-gold); color: var(--gold-light);
-    padding: 8px 14px; border-radius: 4px; font-size: 11px; letter-spacing: 1px;
+    padding: 9px 16px; border-radius: 4px; font-size: 11px; letter-spacing: 1px;
     text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; font-family: 'Montserrat', sans-serif;
   }
   .admin-trigger-btn:hover { background: rgba(212, 175, 55, 0.15); border-color: var(--gold-main); }
@@ -124,7 +126,7 @@
     position: relative; min-height: 85vh; display: flex; align-items: center; justify-content: center;
     text-align: center; padding: 80px 20px;
     background-image: 
-      linear-gradient(to bottom, rgba(10, 10, 12, 0.8) 0%, rgba(10, 10, 12, 0.65) 50%, var(--bg-primary) 100%),
+      linear-gradient(to bottom, rgba(10, 10, 12, 0.7) 0%, rgba(10, 10, 12, 0.5) 50%, var(--bg-primary) 100%),
       url('https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1920&q=85');
     background-size: cover; background-position: center; background-attachment: fixed;
     border-bottom: 1px solid var(--border-gold);
@@ -137,7 +139,7 @@
   }
   .hero-content h1 { font-size: clamp(34px, 5vw, 64px); font-weight: 700; color: #ffffff; line-height: 1.15; margin-bottom: 20px; text-shadow: 0 4px 20px rgba(0,0,0,0.8); }
   .hero-content h1 span { background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-  .hero-content p { font-size: clamp(15px, 1.6vw, 18px); color: #dcdde1; max-width: 680px; margin: 0 auto 35px auto; font-weight: 300; }
+  .hero-content p { font-size: clamp(15px, 1.6vw, 18px); color: #f1f2f6; max-width: 680px; margin: 0 auto 35px auto; font-weight: 300; text-shadow: 0 2px 10px rgba(0,0,0,0.7); }
 
   /* BUTTONS */
   .btn-primary {
@@ -149,7 +151,7 @@
   .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(212, 175, 55, 0.45); filter: brightness(1.08); }
 
   .btn-outline {
-    background: rgba(10, 10, 12, 0.5); color: var(--gold-light); border: 1px solid var(--gold-main);
+    background: rgba(10, 10, 12, 0.4); color: var(--gold-light); border: 1px solid var(--gold-main);
     padding: 15px 34px; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
     text-decoration: none; cursor: pointer; transition: all 0.3s ease; backdrop-filter: blur(5px);
   }
@@ -159,7 +161,7 @@
   .btn-danger { background: var(--danger); color: #fff; border: none; padding: 8px 12px; font-size: 11px; font-weight: 600; cursor: pointer; }
   .btn-edit { background: #2980b9; color: #fff; border: none; padding: 8px 12px; font-size: 11px; font-weight: 600; cursor: pointer; }
 
-  /* STATS BANNER WITH ANIMATED COUNTERS */
+  /* STATS BANNER */
   .stats-banner { background: var(--bg-secondary); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-gold); padding: 45px 30px; }
   .stats-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
   .stat-item { padding: 15px; border-right: 1px solid var(--border-subtle); }
@@ -199,8 +201,9 @@
   .product-card {
     background: var(--bg-card); border: 1px solid var(--border-subtle); overflow: hidden;
     transition: all 0.4s ease; display: flex; flex-direction: column; position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
   }
-  .product-card:hover { border-color: var(--gold-main); transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); }
+  .product-card:hover { border-color: var(--gold-main); transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12); }
 
   .product-badge {
     position: absolute; top: 12px; left: 12px; background: rgba(10, 10, 12, 0.85);
@@ -270,13 +273,13 @@
   .admin-bar-actions { display: flex; gap: 10px; flex-wrap: wrap; }
 
   .modal-overlay {
-    position: fixed; inset: 0; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(6px);
+    position: fixed; inset: 0; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(6px);
     z-index: 999; display: none; align-items: center; justify-content: center; padding: 20px;
   }
   .modal-overlay.open { display: flex; }
   .modal-box {
     background: var(--bg-card); border: 1px solid var(--gold-main); max-width: 540px; width: 100%;
-    padding: 35px; position: relative; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+    padding: 35px; position: relative; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 50px rgba(0,0,0,0.3);
   }
   .modal-close { position: absolute; top: 16px; right: 20px; background: transparent; border: none; color: var(--text-muted); font-size: 24px; cursor: pointer; transition: 0.2s; }
   .modal-close:hover { color: var(--gold-main); }
@@ -285,7 +288,7 @@
 
   .toast-notification {
     position: fixed; bottom: 30px; left: 30px; background: var(--bg-card); border-left: 4px solid var(--gold-main);
-    color: var(--text-main); padding: 14px 22px; box-shadow: 0 10px 30px rgba(0,0,0,0.7); z-index: 1000;
+    color: var(--text-main); padding: 14px 22px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 1000;
     font-size: 12px; transform: translateY(120px); opacity: 0; transition: all 0.4s ease;
   }
   .toast-notification.show { transform: translateY(0); opacity: 1; }
@@ -315,7 +318,7 @@
     .stats-grid { grid-template-columns: repeat(2, 1fr); }
     .stat-item { border-right: none; border-bottom: 1px solid var(--border-subtle); }
     .products-grid { grid-template-columns: 1fr; }
-    .nav-links { display: none; } /* Basit mobil görünüm için gizlenebilir veya hamburger eklenebilir */
+    .nav-links { display: none; }
   }
 </style>
 </head>
@@ -361,7 +364,7 @@
       </nav>
 
       <div class="header-actions">
-        <button class="theme-toggle-btn" onclick="toggleTheme()" title="Tema Değiştir">☀</button>
+        <button class="theme-toggle-btn" onclick="toggleTheme()" title="Tema Değiştir">🌙</button>
         <button id="adminHeaderBtn" class="admin-trigger-btn" onclick="handleAdminButtonClick()">Yönetici Girişi</button>
       </div>
     </div>
@@ -383,6 +386,7 @@
       </div>
     </section>
 
+    <!-- İSTATİSTİKLER (HAREKETLİ SAYAÇLAR) -->
     <div class="stats-banner">
       <div class="stats-grid">
         <div class="stat-item">
@@ -404,26 +408,21 @@
       </div>
     </div>
 
+    <!-- ÖNE ÇIKAN 3-4 ÜRÜN VİTRİNİ -->
     <section class="section-wrapper">
       <div class="section-header">
-        <span class="section-subtitle">Atölye Standartları</span>
-        <h2>Neden Robert Jewelry?</h2>
+        <span class="section-subtitle">Seçkin Seçimler</span>
+        <h2>Öne Çkan Tasarımlarımız</h2>
         <div class="gold-divider"></div>
-        <p>Kargo yok, tamamen kişiye özel randevulu sistem ve özel hediyelik kutu sunumu[cite: 1].</p>
+        <p>En çok tercih edilen atölye modellerimizden bir kesit. Tüm koleksiyonu görmek için aşağıdaki butona tıklayabilirsiniz.</p>
       </div>
-      <div class="features-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px;">
-        <div class="feature-box" style="background:var(--bg-card); border:1px solid var(--border-subtle); padding:30px; text-align:center;">
-          <h3 style="color:#fff; font-size:18px; margin-bottom:12px;">Randevulu Sistem</h3>
-          <p style="color:var(--text-muted); font-size:13.5px;">Cağaloğlu atölyemizde birebir görüşmeyle tasarımlar şekillenir[cite: 1].</p>
-        </div>
-        <div class="feature-box" style="background:var(--bg-card); border:1px solid var(--border-subtle); padding:30px; text-align:center;">
-          <h3 style="color:#fff; font-size:18px; margin-bottom:12px;">Özel Kutu Sunumu</h3>
-          <p style="color:var(--text-muted); font-size:13.5px;">Kargo ile gönderilmez; ürünler lüks kutusunda bizzat elden teslim edilir[cite: 1].</p>
-        </div>
-        <div class="feature-box" style="background:var(--bg-card); border:1px solid var(--border-subtle); padding:30px; text-align:center;">
-          <h3 style="color:#fff; font-size:18px; margin-bottom:12px;">Ömür Boyu Bakım</h3>
-          <p style="color:var(--text-muted); font-size:13.5px;">Atölyemizden çıkan tüm takılar için bakım ve cila güvencesi.</p>
-        </div>
+
+      <div class="products-grid" id="homeFeaturedProductsGrid">
+        <!-- İlk 3-4 ürün dinamik olarak buraya basılır -->
+      </div>
+
+      <div style="text-align: center; margin-top: 50px;">
+        <button class="btn-primary" onclick="switchPage('collection')">Tüm Koleksiyonu Gör →</button>
       </div>
     </section>
   </div>
@@ -452,7 +451,7 @@
       </div>
 
       <div class="products-grid" id="productsGridContainer">
-        <!-- JS ile dinamik doldurulur (Video & Fotoğraf destekli) -->
+        <!-- Tüm ürünler listelenir -->
       </div>
     </section>
   </div>
@@ -709,9 +708,9 @@
 
   <script>
     const STORAGE_KEYS = {
-      PRODUCTS: 'robert_jewelry_products_v3',
-      ADMIN_PASS: 'robert_jewelry_admin_pass_v3',
-      ADMIN_SESSION: 'robert_jewelry_admin_logged_in_v3',
+      PRODUCTS: 'robert_jewelry_products_v4',
+      ADMIN_PASS: 'robert_jewelry_admin_pass_v4',
+      ADMIN_SESSION: 'robert_jewelry_admin_logged_in_v4',
       THEME: 'robert_jewelry_theme'
     };
 
@@ -741,6 +740,28 @@
         image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=800&q=80',
         video: '',
         desc: 'Usta ellerde şekillenen özel örgü tasarımı. Cağaloğlu atölyemizde randevu ile inceleyebilirsiniz.'
+      },
+      {
+        id: 'prod-3',
+        title: 'Özel Kesim Taşlı Yüzük',
+        category: 'Yüzük',
+        badge: 'Atölye Özel',
+        spec: '14 Ayar Beyaz Altın',
+        price: 'Randevu ile Görüşülür',
+        image: 'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=800&q=80',
+        video: '',
+        desc: 'Tamamen ölçünüze göre atölyemizde hazırlanan zarif yüzük modeli.'
+      },
+      {
+        id: 'prod-4',
+        title: 'Gerdanlık & Bileklik Seti',
+        category: 'Özel Set',
+        badge: 'VIP Seri',
+        spec: '14 Ayar Masif Altın',
+        price: 'Randevu ile Görüşülür',
+        image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80',
+        video: '',
+        desc: 'Özel günleriniz için hazırlanan prestijli set tasarımı.'
       }
     ];
 
@@ -762,7 +783,6 @@
       localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(products));
     }
 
-    // MULTI-TAB SWITCHING
     function switchPage(pageId) {
       document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.nav-tab-btn').forEach(b => b.classList.remove('active'));
@@ -776,7 +796,6 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // THEME TOGGLE (DARK / LIGHT)
     function toggleTheme() {
       const html = document.documentElement;
       const currentTheme = html.getAttribute('data-theme');
@@ -787,12 +806,12 @@
     }
 
     function initTheme() {
-      const savedTheme = localStorage.getItem(STORAGE_KEYS.THEME) || 'dark';
+      // Varsayılan aydınlık (light) mod
+      const savedTheme = localStorage.getItem(STORAGE_KEYS.THEME) || 'light';
       document.documentElement.setAttribute('data-theme', savedTheme);
       document.querySelector('.theme-toggle-btn').textContent = savedTheme === 'light' ? '🌙' : '☀';
     }
 
-    // ANIMATED COUNTERS
     function initCounters() {
       const counters = document.querySelectorAll('.counter');
       counters.forEach(counter => {
@@ -812,9 +831,48 @@
       });
     }
 
-    // RENDER PRODUCTS WITH VIDEO & IMAGE SUPPORT
+    // Ana sayfada sadece ilk 3-4 ürünü gösteren fonksiyon
+    function renderHomeFeatured() {
+      const container = document.getElementById('homeFeaturedProductsGrid');
+      if (!container) return;
+
+      const featured = products.slice(0, 4);
+      container.innerHTML = featured.map(prod => {
+        const waText = encodeURIComponent(`Merhaba Robert Jewelry, "${prod.title}" için atölyenizden randevu almak istiyorum.`);
+        let mediaHtml = '';
+        if (prod.video && prod.video.trim() !== '') {
+          mediaHtml = `<video src="${prod.video}" controls muted loop style="width:100%; height:100%; object-fit:cover;"></video>`;
+        } else {
+          mediaHtml = `<img src="${prod.image || 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80'}" alt="${prod.title}">`;
+        }
+
+        return `
+          <div class="product-card">
+            ${prod.badge ? `<span class="product-badge">${prod.badge}</span>` : ''}
+            <div class="product-media-wrapper">${mediaHtml}</div>
+            <div class="product-body">
+              <div>
+                <div class="product-category">${prod.category}</div>
+                <h3 class="product-title">${prod.title}</h3>
+                <p class="product-desc">${prod.desc}</p>
+              </div>
+              <div>
+                <div class="product-meta">
+                  <span>${prod.spec}</span>
+                  <span class="product-price">${prod.price}</span>
+                </div>
+                <a href="https://wa.me/905312467931?text=${waText}" target="_blank" class="btn-primary" style="width:100%; font-size:11px; padding:10px;">Randevu &amp; Bilgi Al</a>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Tüm koleksiyonu listeleyen fonksiyon
     function renderProducts() {
       const container = document.getElementById('productsGridContainer');
+      if (!container) return;
       const searchQuery = document.getElementById('productSearchInput').value.toLowerCase().trim();
 
       const filtered = products.filter(item => {
@@ -875,7 +933,6 @@
       renderProducts();
     }
 
-    // ADMIN & CRUD
     function updateAdminUI() {
       const banner = document.getElementById('adminDashboardBar');
       const headerBtn = document.getElementById('adminHeaderBtn');
@@ -888,6 +945,7 @@
         headerBtn.textContent = 'Yönetici Girişi';
         headerBtn.classList.remove('logged-in');
       }
+      renderHomeFeatured();
       renderProducts();
     }
 
@@ -985,6 +1043,7 @@
         showToast('Yeni ürün eklendi.');
       }
       saveProductsToStorage();
+      renderHomeFeatured();
       renderProducts();
       closeModal('productFormModal');
     }
@@ -993,6 +1052,7 @@
       if (!confirm('Silmek istediğinize emin misiniz?')) return;
       products = products.filter(p => p.id !== id);
       saveProductsToStorage();
+      renderHomeFeatured();
       renderProducts();
       showToast('Ürün silindi.');
     }
@@ -1033,6 +1093,8 @@
       initProducts();
       updateAdminUI();
       initCounters();
+      renderHomeFeatured();
+      renderProducts();
     });
   </script>
 </body>
