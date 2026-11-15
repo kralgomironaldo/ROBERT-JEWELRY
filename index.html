@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#11100e">
+<title>ROBERT JEWELRY</title>
+
+<style>
+:root {
+  --gold: #c99a42;
+  --gold2: #f4d58b;
+  --ink: #171512;
+  --paper: #faf8f4;
+  --line: #e9e2d7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Arial, sans-serif;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.topline {
+  height: 3px;
+  background: linear-gradient(90deg,#8b5b13,#f5dc9a,#a87522);
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fffdf9ed;
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.brand img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+}
+
+.brand strong {
+  font-family: Georgia, serif;
+  letter-spacing: 4px;
+  font-size: 19px;
+}
+
+.brand small {
+  display: block;
+  color: var(--gold);
+  letter-spacing: 5px;
+  font-size: 10px;
+  margin-top: 4px;
+}
+
+.navlinks {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navlinks a {
+  color: #514b43;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.btn {
+  border: 0;
+  border-radius: 3px;
+  padding: 12px 18px;
+  background: var(--ink);
+  color: white;
+  transition: .2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  background: #9a6b24;
+}
+
+.btn.gold {
+  background: linear-gradient(120deg,#a87522,#e5c477);
+  color: #1d160b;
+}
+
+.btn.ghost {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.btn.small {
+  padding: 8px 12px;
+  font-size: 12px;
+}
+
+.hero {
+  min-height: 570px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 70px 24px;
+  background: radial-gradient(
+    ellipse at 50% 25%,
+    #fff 0,
+    #f7f0e4 54%,
+    #eee4d5 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.hero:before,
+.hero:after {
+  content: "✧";
+  position: absolute;
+  color: #d4ae65;
+  font-size: 150px;
+  opacity: .13;
+}
+
+.hero:before {
+  left: 8%;
+  top: 15%;
+}
+
+.hero:after {
+  right: 9%;
+  bottom: 8%;
+}
+
+.hero-inner {
+  max-width: 760px;
+  position: relative;
+}
+
+.eyebrow {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #a87522;
+  font-size: 11px;
+}
+
+.hero h1 {
+  font: clamp(42px,7vw,76px)/1.05 Georgia,serif;
+  font-weight: 400;
+  margin: 20px 0;
+}
+
+.hero h1 span {
+  color: #ad7a2d;
+}
+
+.hero p {
+  max-width: 570px;
+  margin: 0 auto 28px;
+  color: #6e675f;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.hero-mark {
+  width: 104px;
+  height: 104px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 75px 24px;
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: 34px;
+}
+
+.section-head h2 {
+  font: 40px Georgia,serif;
+  font-weight: 400;
+  margin: 10px 0;
+}
+
+.section-head p {
+  color: #77716a;
+  font-size: 14px;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+
+.search {
+  max-width: 330px;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  background: white;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter {
+  border: 1px solid var(--line);
+  background: white;
+  padding: 10px 14px;
+  color: #625b52;
+  font-size: 12px;
+}
+
+.filter.active {
+  background: #211d17;
+  color: white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 22px;
+}
+
+.product {
+  background: white;
+  border: 1px solid #eee8df;
+  transition: .25s;
+  overflow: hidden;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 35px #3d2c1410;
+}
+
+.product-img {
+  height: 245px;
+  background: linear-gradient(135deg,#f4eee3,#fff);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.placeholder {
+  font: 50px Georgia;
+  color: #c5a05d;
+}
+
+.product-info {
+  padding: 18px;
+}
+
+.product-info .type {
+  color: #a87522;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.product-info h3 {
+  font: 23px Georgia,serif;
+  font-weight: 400;
+  margin: 9px 0;
+}
+
+.price {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.product-info small {
+  color: #77716a;
+}
+
+.empty {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 55px 20px;
+  color: #77716a;
+  background: white;
+  border: 1px dashed var(--line);
+}
+
+.about {
+  background: #211d17;
+  color: #f8f3e9;
+}
+
+.about-inner {
+  max-width: 850px;
+  margin: auto;
+  text-align: center;
+  padding: 68px 24px;
+}
+
+.about h2 {
+  font: 38px Georgia,serif;
+  font-weight: 400;
+}
+
+.about p {
+  color: #c9c0b2;
+  line-height: 1.9;
+}
+
+footer {
+  background: #15130f;
+  color: #b9b0a2;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: #0b0907a8;
+  z-index: 30;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.panel {
+  background: #fffdf9;
+  width: min(520px,100%);
+  max-height: 90vh;
+  overflow: auto;
+  padding: 28px;
+}
+
+.panel.wide {
+  width: min(850px,100%);
+}
+
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.panel-head h2 {
+  font: 27px Georgia;
+  margin: 0;
+}
+
+.x {
+  border: 0;
+  background: none;
+  font-size: 25px;
+  color: #777;
+}
+
+.field {
+  display: grid;
+  gap: 7px;
+  margin: 14px 0;
+}
+
+.field label {
+  font-size: 12px;
+  color: #655d52;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--line);
+  background: white;
+}
+
+.field textarea {
+  min-height: 80px;
+}
+
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.hint {
+  font-size: 12px;
+  color: #81796e;
+  line-height: 1.6;
+}
+
+.adminbar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.admin-list {
+  display: grid;
+  gap: 8px;
+}
+
+.admin-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: #f7f3ec;
+}
+
+.admin-item strong {
+  font-family: Georgia;
+}
+
+.admin-item small {
+  display: block;
+  color: #77716a;
+  margin-top: 4px;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.toast {
+  position: fixed;
+  bottom: 22px;
+  left: 50%;
+  transform: translate(-50%,20px);
+  opacity: 0;
+  pointer-events: none;
+  background: #211d17;
+  color: white;
+  padding: 12px 18px;
+  z-index: 50;
+  transition: .25s;
+  font-size: 13px;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%,0);
+}
+
+.reveal {
+  animation: rise .7s both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media(max-width:800px) {
+  .grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+
+  .navlinks {
+    gap: 12px;
+  }
+
+  .navlinks a {
+    display: none;
+  }
+}
+
+@media(max-width:540px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-img {
+    height: 260px;
+  }
+
+  .brand strong {
+    font-size: 16px;
+  }
+
+  .hero {
+    min-height: 520px;
+  }
+
+  .row2 {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 55px 16px;
+  }
+
+  .nav {
+    padding: 10px 15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topline"></div>
+
+<header>
+<nav class="nav">
+
+<a class="brand" href="#">
+<img id="navLogo" alt="Robert Jewelry logo">
+<span>
+<strong>ROBERT</strong>
+<small>JEWELRY</small>
+</span>
+</a>
+
+<div class="navlinks">
+<a href="#koleksiyon">Koleksiyon</a>
+<a href="#hakkimizda">Hikâyemiz</a>
+<button class="btn small ghost" onclick="openLogin()">
+Yönetici Girişi
+</button>
+</div>
+
+</nav>
+</header>
+
+<main>
+
+<section class="hero">
+<div class="hero-inner reveal">
+
+<img class="hero-mark" id="heroLogo" alt="Robert Jewelry">
+
+<div class="eyebrow">
+Zamansız zarafet · Özenle seçilmiş
+</div>
+
+<h1>Işıltınızı <span>keşfedin.</span></h1>
+
+<p>
+Her detayında ustalık, her çizgisinde zarafet.
+Robert Jewelry koleksiyonunu keşfedin.
+</p>
+
+<a class="btn gold" href="#koleksiyon"
+style="display:inline-block;text-decoration:none">
+Koleksiyonu Keşfet
+</a>
+
+</div>
+</section>
+
+<section class="section" id="koleksiyon">
+
+<div class="section-head">
+<div class="eyebrow">Robert Jewelry seçkisi</div>
+<h2>Koleksiyon</h2>
+<p>Size özel parçalar, zarif detaylar.</p>
+</div>
+
+<div class="toolbar">
+<input class="search" id="search"
+placeholder="Ürün veya model ara..."
+oninput="renderProducts()">
+
+<div class="filters" id="filters"></div>
+</div>
+
+<div class="grid" id="products"></div>
+
+</section>
+
+<section class="about" id="hakkimizda">
+<div class="about-inner">
+<div class="eyebrow">Robert Jewelry</div>
+<h2>Zarafet detaylarda saklıdır.</h2>
+<p>
+Şıklığı sadelikle buluşturan koleksiyonumuzda,
+her parçanın kendine özgü bir hikâyesi var.
+Robert Jewelry dünyasına hoş geldiniz.
+</p>
+</div>
+</section>
+
+</main>
+
+<footer>
+© <span id="year"></span> ROBERT JEWELRY · TÜM HAKLARI SAKLIDIR
+</footer>
+
+<!-- YÖNETİCİ GİRİŞİ -->
+
+<div class="modal" id="loginModal">
+<div class="panel">
+
+<div class="panel-head">
+<h2>Yönetici Girişi</h2>
+<button class="x" onclick="closeModal('loginModal')">×</button>
+</div>
+
+<form id="loginForm">
+<div class="field">
+<label>Yönetici şifresi</label>
+<input id="loginPassword" type="password"
+autocomplete="current-password" required
+placeholder="Şifrenizi girin">
+</div>
+
+<button class="btn gold" style="width:100%">
+Giriş Yap
+</button>
+</form>
+
+<p class="hint">
+Yönetim panelinden ürün ekleyebilir,
+fiyatları güncelleyebilir ve yönetici
+şifresini değiştirebilirsiniz.
+</p>
+
+</div>
+</div>
+
+<!-- YÖNETİM PANELİ -->
+
+<div class="modal" id="adminModal">
+<div class="panel wide">
+
+<div class="panel-head">
+<h2>Yönetim Paneli</h2>
+<button class="x" onclick="closeModal('adminModal')">×</button>
+</div>
+
+<div class="adminbar">
+<button class="btn gold small" onclick="showProductForm()">
++ Yeni Ürün
+</button>
+
+<button class="btn ghost small" onclick="showPasswordForm()">
+Şifre Değiştir
+</button>
+
+<button class="btn ghost small" onclick="exportData()">
+Yedek İndir
+</button>
+
+<button class="btn ghost small"
+onclick="document.getElementById('importFile').click()">
+Yedek Yükle
+</button>
+
+<input id="importFile" type="file"
+accept="application/json" hidden
+onchange="importData(event)">
+</div>
+
+<div id="adminContent"></div>
+
+<p class="hint" style="margin-top:18px">
+Bu tek dosyalık sürümde ürünler ve şifre yalnızca
+bu tarayıcıda saklanır. Gerçek güvenli giriş ve
+cihazlar arası ortak kullanım için sunucu gerekir.
+</p>
+
+</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+
+// LOGO
+const LOGO_DATA = "logo.png";
+
+document.getElementById('navLogo').src = LOGO_DATA;
+document.getElementById('heroLogo').src = LOGO_DATA;
+document.getElementById('year').textContent = new Date().getFullYear();
+
+
+// ÖRNEK ÜRÜNLER
+
+const DEFAULT_PRODUCTS = [
+{
+id:1,
+name:"Zarif Altın Yüzük",
+category:"Yüzük",
+price:18500,
+currency:"TRY",
+description:"Zamansız çizgilerle tasarlanmış zarif bir parça.",
+image:""
+},
+{
+id:2,
+name:"Işıltı Kolye",
+category:"Kolye",
+price:24900,
+currency:"TRY",
+description:"Her kombine eşlik eden sade ve şık tasarım.",
+image:""
+},
+{
+id:3,
+name:"Klasik Bileklik",
+category:"Bileklik",
+price:31900,
+currency:"TRY",
+description:"Özel anlar için özenle seçilmiş tasarım.",
+image:""
+}
+];
+
+
+// VERİLER
+
+let products = load("rj_products", DEFAULT_PRODUCTS);
+
+let adminPassword =
+localStorage.getItem("rj_admin_password") || "robert1453";
+
+let editingId = null;
+let category = "Tümü";
+
+
+function load(key, fallback) {
+try {
+return JSON.parse(localStorage.getItem(key)) || fallback;
+} catch {
+return fallback;
+}
+}
+
+function save() {
+localStorage.setItem("rj_products", JSON.stringify(products));
+}
+
+
+// FİYAT BİÇİMLENDİRME
+
+function money(value, currency) {
+try {
+return new Intl.NumberFormat('tr-TR', {
+style:'currency',
+currency
+}).format(Number(value));
+} catch {
+return Number(value).toLocaleString('tr-TR') + " " + currency;
+}
+}
+
+
+// BİLDİRİM
+
+function toast(message) {
+const t = document.getElementById('toast');
+
+t.textContent = message;
+t.classList.add('show');
+
+setTimeout(() => {
+t.classList.remove('show');
+}, 2400);
+}
+
+
+// GİRİŞ
+
+function openLogin() {
+document.getElementById('loginModal').classList.add('show');
+
+setTimeout(() => {
+document.getElementById('loginPassword').focus();
+}, 100);
+}
+
+function closeModal(id) {
+document.getElementById(id).classList.remove('show');
+}
+
+document.getElementById('loginForm')
+.addEventListener('submit', e => {
+
+e.preventDefault();
+
+if (
+document.getElementById('loginPassword').value === adminPassword
+) {
+
+closeModal('loginModal');
+
+document.getElementById('loginPassword').value = '';
+
+renderAdmin();
+
+document.getElementById('adminModal').classList.add('show');
+
+} else {
+
+toast('Şifre hatalı. Tekrar deneyin.');
+
+}
+
+});
+
+
+// ÜRÜNLERİ GÖSTER
+
+function renderProducts() {
+
+const term = (
+document.getElementById('search').value || ''
+).toLocaleLowerCase('tr');
+
+const cats = [
+'Tümü',
+...new Set(products.map(p => p.category || 'Diğer'))
+];
+
+document.getElementById('filters').innerHTML =
+cats.map(c => `
+<button class="filter ${category === c ? 'active' : ''}"
+onclick="category=${JSON.stringify(c)};renderProducts()">
+${esc(c)}
+</button>
+`).join('');
+
+
+const filtered = products.filter(p =>
+(category === 'Tümü' || (p.category || 'Diğer') === category)
+&&
+(`${p.name} ${p.category} ${p.description}`)
+.toLocaleLowerCase('tr').includes(term)
+);
+
+
+document.getElementById('products').innerHTML =
+filtered.length
+?
+filtered.map((p,i) => `
+
+<article class="product reveal"
+style="animation-delay:${i*70}ms">
+
+<div class="product-img">
+
+${p.image
+? `<img src="${p.image}" alt="${esc(p.name)}">`
+: '<span class="placeholder">◇</span>'
+}
+
+</div>
+
+<div class="product-info">
+
+<div class="type">${esc(p.category || 'Koleksiyon')}</div>
+
+<h3>${esc(p.name)}</h3>
+
+<div class="price">
+${money(p.price,p.currency || 'TRY')}
+</div>
+
+${p.description
+? `<small>${esc(p.description)}</small>`
+: ''
+}
+
+</div>
+</article>
+
+`).join('')
+
+:
+
+'<div class="empty">Aramanızla eşleşen ürün bulunamadı.</div>';
+
+}
+
+
+// GÜVENLİ METİN
+
+function esc(s) {
+return String(s ?? '').replace(/[&<>"']/g, c => ({
+'&':'&amp;',
+'<':'&lt;',
+'>':'&gt;',
+'"':'&quot;',
+"'":'&#39;'
+}[c]));
+}
+
+
+// YÖNETİM PANELİ
+
+function renderAdmin() {
+
+document.getElementById('adminContent').innerHTML = `
+
+<h3 style="font:22px Georgia;font-weight:400">
+Ürünler (${products.length})
+</h3>
+
+<div class="admin-list">
+
+${products.length
+
+? products.map(p => `
+
+<div class="admin-item">
+
+<div>
+<strong>${esc(p.name)}</strong>
+<small>
+${esc(p.category)} ·
+${money(p.price,p.currency || 'TRY')}
+</small>
+</div>
+
+<div class="admin-actions">
+
+<button class="btn ghost small"
+onclick="editProduct(${p.id})">
+Düzenle
+</button>
+
+<button class="btn small"
+style="background:#8b3434"
+onclick="deleteProduct(${p.id})">
+Sil
+</button>
+
+</div>
+</div>
+
+`).join('')
+
+: '<p>Henüz ürün eklenmemiş.</p>'
+
+}
+
+</div>
+`;
+
+}
+
+
+// ÜRÜN EKLEME VE DÜZENLEME
+
+function showProductForm(p = null) {
+
+editingId = p?.id ?? null;
+
+document.getElementById('adminContent').innerHTML = `
+
+<h3 style="font:22px Georgia;font-weight:400">
+${p ? 'Ürünü Düzenle' : 'Yeni Ürün Ekle'}
+</h3>
+
+<form id="productForm">
+
+<div class="row2">
+
+<div class="field">
+<label>Ürün / model adı *</label>
+
+<input name="name" required
+value="${esc(p?.name || '')}"
+placeholder="Örn. Altın kolye">
+</div>
+
+<div class="field">
+<label>Kategori</label>
+
+<input name="category"
+value="${esc(p?.category || '')}"
+placeholder="Yüzük, kolye, bileklik...">
+</div>
+
+</div>
+
+<div class="row2">
+
+<div class="field">
+<label>Fiyat *</label>
+
+<input name="price"
+type="number"
+min="0"
+step="0.01"
+required
+value="${p?.price ?? ''}">
+</div>
+
+<div class="field">
+<label>Para birimi</label>
+
+<select name="currency">
+
+${['TRY','USD','EUR','GBP','CHF'].map(c => `
+<option ${((p?.currency || 'TRY') === c) ? 'selected' : ''}>
+${c}
+</option>
+`).join('')}
+
+</select>
+</div>
+
+</div>
+
+<div class="field">
+<label>Açıklama</label>
+
+<textarea name="description"
+placeholder="Ürün hakkında kısa bilgi...">${esc(p?.description || '')}</textarea>
+</div>
+
+<div class="field">
+<label>Ürün fotoğrafı</label>
+
+<input name="image"
+type="file"
+accept="image/*">
+
+<small class="hint">
+Fotoğraf seçmek isteğe bağlıdır.
+Küçük görseller önerilir.
+</small>
+</div>
+
+<div class="adminbar">
+
+<button class="btn gold">
+Kaydet
+</button>
+
+<button type="button" class="btn ghost"
+onclick="renderAdmin()">
+Vazgeç
+</button>
+
+</div>
+
+</form>
+`;
+
+
+document.getElementById('productForm')
+.addEventListener('submit', async e => {
+
+e.preventDefault();
+
+const f = e.currentTarget;
+const fd = new FormData(f);
+
+let image = p?.image || '';
+
+const file = f.elements.image.files[0];
+
+if (file) {
+
+if (file.size > 1500000) {
+toast('Fotoğraf 1.5 MB altında olmalı.');
+return;
+}
+
+image = await readImage(file);
+
+}
+
+const item = {
+
+id: editingId ?? Date.now(),
+
+name: fd.get('name').trim(),
+
+category: fd.get('category').trim() || 'Diğer',
+
+price: Number(fd.get('price')),
+
+currency: fd.get('currency'),
+
+description: fd.get('description').trim(),
+
+image
+
+};
+
+
+if (editingId !== null) {
+
+products = products.map(x =>
+x.id === editingId ? item : x
+);
+
+} else {
+
+products.unshift(item);
+
+}
+
+save();
+
+renderProducts();
+renderAdmin();
+
+toast('Ürün kaydedildi.');
+
+});
+
+}
+
+
+// FOTOĞRAF OKUMA
+
+function readImage(file) {
+
+return new Promise((resolve,reject) => {
+
+const r = new FileReader();
+
+r.onload = () => resolve(r.result);
+r.onerror = reject;
+
+r.readAsDataURL(file);
+
+});
+
+}
+
+
+// ÜRÜN DÜZENLEME
+
+function editProduct(id) {
+
+const p = products.find(x => x.id === id);
+
+if (p) showProductForm(p);
+
+}
+
+
+// ÜRÜN SİLME
+
+function deleteProduct(id) {
+
+if (confirm('Bu ürünü silmek istiyor musunuz?')) {
+
+products = products.filter(p => p.id !== id);
+
+save();
+
+renderProducts();
+renderAdmin();
+
+toast('Ürün silindi.');
+
+}
+
+}
+
+
+// ŞİFRE DEĞİŞTİRME
+
+function showPasswordForm() {
+
+document.getElementById('adminContent').innerHTML = `
+
+<h3 style="font:22px Georgia;font-weight:400">
+Yönetici Şifresini Değiştir
+</h3>
+
+<form id="passwordForm">
+
+<div class="field">
+<label>Mevcut şifre</label>
+<input name="old" type="password" required>
+</div>
+
+<div class="field">
+<label>Yeni şifre</label>
+<input name="next" type="password"
+minlength="8" required
+placeholder="En az 8 karakter">
+</div>
+
+<div class="field">
+<label>Yeni şifreyi tekrar girin</label>
+<input name="again" type="password"
+minlength="8" required>
+</div>
+
+<div class="adminbar">
+
+<button class="btn gold">
+Şifreyi Güncelle
+</button>
+
+<button type="button" class="btn ghost"
+onclick="renderAdmin()">
+Vazgeç
+</button>
+
+</div>
+
+</form>
+`;
+
+
+document.getElementById('passwordForm')
+.addEventListener('submit', e => {
+
+e.preventDefault();
+
+const f = e.currentTarget;
+
+if (f.old.value !== adminPassword) {
+toast('Mevcut şifre yanlış.');
+return;
+}
+
+if (f.next.value !== f.again.value) {
+toast('Yeni şifreler eşleşmiyor.');
+return;
+}
+
+adminPassword = f.next.value;
+
+localStorage.setItem(
+"rj_admin_password",
+adminPassword
+);
+
+toast('Şifre bu tarayıcıda güncellendi.');
+
+renderAdmin();
+
+});
+
+}
+
+
+// YEDEK İNDİRME
+
+function exportData() {
+
+const blob = new Blob(
+[
+JSON.stringify({
+products,
+adminPassword
+}, null, 2)
+],
+{
+type:'application/json'
+}
+);
+
+const a = document.createElement('a');
+
+a.href = URL.createObjectURL(blob);
+a.download = 'robert-jewelry-yedek.json';
+
+a.click();
+
+URL.revokeObjectURL(a.href);
+
+}
+
+
+// YEDEK YÜKLEME
+
+function importData(e) {
+
+const file = e.target.files[0];
+
+if (!file) return;
+
+const r = new FileReader();
+
+r.onload = () => {
+
+try {
+
+const d = JSON.parse(r.result);
+
+if (!Array.isArray(d.products)) throw Error();
+
+products = d.products;
+
+if (
+typeof d.adminPassword === 'string'
+&& d.adminPassword.length >= 8
+) {
+
+adminPassword = d.adminPassword;
+
+localStorage.setItem(
+'rj_admin_password',
+adminPassword
+);
+
+}
+
+save();
+
+renderProducts();
+renderAdmin();
+
+toast('Yedek yüklendi.');
+
+} catch {
+
+toast('Yedek dosyası okunamadı.');
+
+}
+
+};
+
+r.readAsText(file);
+
+e.target.value = '';
+
+}
+
+
+// BAŞLAT
+
+renderProducts();
+
+</script>
+</body>
+</html>
