@@ -10,40 +10,40 @@
   @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
   :root {
-    --bg-primary: #fcfbfa;
-    --bg-secondary: #f4efe6;
+    --bg-primary: #fffaf5;
+    --bg-secondary: #f6ecdf;
     --bg-card: #ffffff;
-    --bg-card-hover: #f9f5ef;
+    --bg-card-hover: #fff5eb;
     --gold-light: #7a5a12;
     --gold-main: #b89735;
     --gold-dark: #8a6518;
-    --gold-gradient: linear-gradient(135deg, #d4af37 0%, #aa8228 100%);
+    --gold-gradient: linear-gradient(135deg, #d4af37 0%, #aa8228 50%, #e6ca65 100%);
     --text-main: #2b2428;
     --text-muted: #6e646a;
-    --border-gold: rgba(184, 151, 53, 0.35);
+    --border-gold: rgba(184, 151, 53, 0.4);
     --border-subtle: rgba(0, 0, 0, 0.08);
     --danger: #e74c3c;
     --success: #2ecc71;
   }
 
   [data-theme="dark"] {
-    --bg-primary: #0a0a0c;
-    --bg-secondary: #121216;
-    --bg-card: #18181f;
-    --bg-card-hover: #20202a;
+    --bg-primary: #070709;
+    --bg-secondary: #121016;
+    --bg-card: #16151c;
+    --bg-card-hover: #1f1e28;
     --gold-light: #f3e5ab;
     --gold-main: #d4af37;
     --gold-dark: #aa8228;
     --gold-gradient: linear-gradient(135deg, #f3e5ab 0%, #d4af37 50%, #99731e 100%);
     --text-main: #f8f9fa;
     --text-muted: #a0a5b1;
-    --border-gold: rgba(212, 175, 55, 0.25);
+    --border-gold: rgba(212, 175, 55, 0.3);
     --border-subtle: rgba(255, 255, 255, 0.08);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html { scroll-behavior: smooth; background-color: var(--bg-primary); color: var(--text-main); font-family: 'Montserrat', sans-serif; transition: background 0.3s, color 0.3s; }
+  html { scroll-behavior: smooth; background-color: var(--bg-primary); color: var(--text-main); font-family: 'Montserrat', sans-serif; transition: background 0.4s, color 0.4s; }
   body { overflow-x: hidden; line-height: 1.6; }
 
   h1, h2, h3, h4, .brand-font { font-family: 'Cinzel', serif; letter-spacing: 1.5px; }
@@ -52,11 +52,25 @@
   ::-webkit-scrollbar-track { background: var(--bg-primary); }
   ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 4px; }
 
+  /* DOLU DOLU VE RENGARENK DİNAMİK ARKA PLAN EFEKTLERİ */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.15;
+    background-image: 
+      radial-gradient(circle at 10% 20%, #d4af37 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, #b89735 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, #e6ca65 0%, transparent 60%);
+  }
+
   .top-announcement {
-    background: linear-gradient(90deg, var(--bg-secondary), var(--bg-card), var(--bg-secondary));
-    border-bottom: 1px solid var(--border-gold);
-    text-align: center; padding: 9px 15px; font-size: 12px;
-    letter-spacing: 2px; color: var(--gold-light); text-transform: uppercase;
+    background: linear-gradient(90deg, #b89735, #d4af37, #8a6518);
+    color: #fff;
+    text-align: center; padding: 9px 15px; font-size: 11.5px;
+    letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
   }
 
   header {
@@ -74,11 +88,10 @@
 
   .logo-wrapper { display: flex; align-items: center; gap: 16px; text-decoration: none; cursor: pointer; }
   
-  /* BÜYÜTÜLEN LOGO ALANI (75px) */
   .logo-img-box {
     width: 75px; height: 75px; border-radius: 50%; padding: 3px;
     background: var(--gold-gradient); display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
   }
   .logo-img-box img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; background: #ffffff; }
 
@@ -97,14 +110,14 @@
     padding: 10px 16px; border-radius: 4px; transition: all 0.3s ease; cursor: pointer; font-family: 'Montserrat', sans-serif;
   }
   .nav-links button.nav-tab-btn:hover, .nav-links button.nav-tab-btn.active {
-    color: var(--gold-light); background: rgba(212, 175, 55, 0.12);
+    color: var(--gold-light); background: rgba(212, 175, 55, 0.15);
   }
 
   .header-actions { display: flex; align-items: center; gap: 12px; }
   .theme-toggle-btn {
     background: var(--bg-card); border: 1px solid var(--border-gold); color: var(--gold-light);
     width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;
-    transition: 0.3s; font-size: 17px;
+    transition: 0.3s; font-size: 17px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   }
   .theme-toggle-btn:hover { background: var(--gold-main); color: #0a0a0c; }
 
@@ -116,17 +129,16 @@
   .admin-trigger-btn:hover { background: rgba(212, 175, 55, 0.15); border-color: var(--gold-main); }
   .admin-trigger-btn.logged-in { background: var(--gold-gradient); color: #0a0a0c; font-weight: 700; }
 
-  /* PAGE SYSTEM */
   .page-content { display: none; animation: fadeIn 0.5s ease forwards; }
   .page-content.active { display: block; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-  /* HERO SECTION (TEKTAŞ ARKA PLANLI) */
+  /* HERO SECTION (TEKTAŞ VE RENGARENK IŞILTI ARKA PLAN) */
   .hero-section {
     position: relative; min-height: 85vh; display: flex; align-items: center; justify-content: center;
     text-align: center; padding: 80px 20px;
     background-image: 
-      linear-gradient(to bottom, rgba(10, 10, 12, 0.7) 0%, rgba(10, 10, 12, 0.5) 50%, var(--bg-primary) 100%),
+      linear-gradient(135deg, rgba(212, 175, 55, 0.25) 0%, rgba(10, 10, 12, 0.75) 60%),
       url('https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1920&q=85');
     background-size: cover; background-position: center; background-attachment: fixed;
     border-bottom: 1px solid var(--border-gold);
@@ -134,24 +146,23 @@
   .hero-content { max-width: 900px; z-index: 2; }
   .hero-ornament {
     display: inline-block; padding: 6px 20px; border: 1px solid var(--border-gold);
-    background: rgba(10, 10, 12, 0.6); color: var(--gold-light); font-size: 11px;
+    background: rgba(0, 0, 0, 0.5); color: var(--gold-light); font-size: 11px;
     letter-spacing: 3px; text-transform: uppercase; margin-bottom: 24px; backdrop-filter: blur(5px);
   }
   .hero-content h1 { font-size: clamp(34px, 5vw, 64px); font-weight: 700; color: #ffffff; line-height: 1.15; margin-bottom: 20px; text-shadow: 0 4px 20px rgba(0,0,0,0.8); }
   .hero-content h1 span { background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
   .hero-content p { font-size: clamp(15px, 1.6vw, 18px); color: #f1f2f6; max-width: 680px; margin: 0 auto 35px auto; font-weight: 300; text-shadow: 0 2px 10px rgba(0,0,0,0.7); }
 
-  /* BUTTONS */
   .btn-primary {
     background: var(--gold-gradient); color: #0a0a0c; border: none; padding: 15px 34px;
     font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
     text-decoration: none; cursor: pointer; transition: all 0.3s ease; display: inline-flex;
-    align-items: center; justify-content: center; gap: 10px; box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
+    align-items: center; justify-content: center; gap: 10px; box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
   }
-  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(212, 175, 55, 0.45); filter: brightness(1.08); }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(212, 175, 55, 0.5); filter: brightness(1.08); }
 
   .btn-outline {
-    background: rgba(10, 10, 12, 0.4); color: var(--gold-light); border: 1px solid var(--gold-main);
+    background: rgba(0, 0, 0, 0.4); color: var(--gold-light); border: 1px solid var(--gold-main);
     padding: 15px 34px; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
     text-decoration: none; cursor: pointer; transition: all 0.3s ease; backdrop-filter: blur(5px);
   }
@@ -188,7 +199,7 @@
     background: var(--bg-card); border: 1px solid var(--border-subtle); color: var(--text-muted);
     padding: 9px 18px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: 0.3s;
   }
-  .filter-btn:hover, .filter-btn.active { border-color: var(--gold-main); color: var(--gold-light); background: rgba(212, 175, 55, 0.1); }
+  .filter-btn:hover, .filter-btn.active { border-color: var(--gold-main); color: var(--gold-light); background: rgba(212, 175, 55, 0.15); }
 
   .search-box { position: relative; min-width: 260px; }
   .search-box input {
@@ -201,9 +212,9 @@
   .product-card {
     background: var(--bg-card); border: 1px solid var(--border-subtle); overflow: hidden;
     transition: all 0.4s ease; display: flex; flex-direction: column; position: relative;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
   }
-  .product-card:hover { border-color: var(--gold-main); transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12); }
+  .product-card:hover { border-color: var(--gold-main); transform: translateY(-6px); box-shadow: 0 14px 35px rgba(212, 175, 55, 0.2); }
 
   .product-badge {
     position: absolute; top: 12px; left: 12px; background: rgba(10, 10, 12, 0.85);
@@ -221,7 +232,7 @@
   .product-price { font-family: 'Cinzel', serif; font-size: 17px; font-weight: 700; color: var(--gold-light); }
 
   /* CUSTOM STUDIO */
-  .custom-studio-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 40px; align-items: start; background: var(--bg-card); border: 1px solid var(--border-gold); padding: 45px; }
+  .custom-studio-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 40px; align-items: start; background: var(--bg-card); border: 1px solid var(--border-gold); padding: 45px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
   .custom-steps { display: flex; flex-direction: column; gap: 24px; }
   .step-item { display: flex; gap: 16px; align-items: flex-start; }
   .step-num { width: 38px; height: 38px; min-width: 38px; border: 1px solid var(--gold-main); display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif; font-weight: 700; color: var(--gold-light); font-size: 15px; }
@@ -258,7 +269,7 @@
   .faq-item.open .faq-answer { max-height: 220px; padding-bottom: 20px; }
 
   .contact-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 35px; }
-  .contact-info-card { background: var(--bg-card); border: 1px solid var(--border-gold); padding: 35px; display: flex; flex-direction: column; justify-content: space-between; }
+  .contact-info-card { background: var(--bg-card); border: 1px solid var(--border-gold); padding: 35px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
   .info-block { margin-bottom: 22px; }
   .info-block h4 { color: var(--gold-main); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; font-family: 'Montserrat', sans-serif; }
   .info-block p { color: var(--text-main); font-size: 14px; }
@@ -329,10 +340,10 @@
     Özel Tasarım Mücevher Atölyesi &mdash; Kargo Yoktur, Randevu ile Cağaloğlu Atölyemizde Lüks Kutuda Elden Teslim Edilir[cite: 1]
   </div>
 
-  <!-- YÖNETİCİ KONTROL ÇUBUĞU -->
+  <!-- YÖNETİCİ KONTROL ÇUBUĞU (5 DAKİKA SAYAÇ BİLGİLİ) -->
   <div id="adminDashboardBar" class="admin-dashboard-banner">
     <div class="admin-bar-inner">
-      <div class="admin-status-text">YÖNETİCİ MODU AKTİF &mdash; Ürün ekleyebilir, video/fotoğraf yükleyebilir, düzenleyebilir veya silebilirsiniz.</div>
+      <div class="admin-status-text">YÖNETİCİ AKTİF (Oturum Süresi: <span id="sessionCountdown">05:00</span>)</div>
       <div class="admin-bar-actions">
         <button class="btn-primary btn-sm" onclick="openProductModal()">+ Yeni Ürün Ekle</button>
         <button class="btn-outline btn-sm" onclick="openChangePasswordModal()">Şifre Değiştir</button>
@@ -386,7 +397,7 @@
       </div>
     </section>
 
-    <!-- İSTATİSTİKLER (HAREKETLİ SAYAÇLAR) -->
+    <!-- HAREKETLİ SAYAÇLAR -->
     <div class="stats-banner">
       <div class="stats-grid">
         <div class="stat-item">
@@ -408,18 +419,16 @@
       </div>
     </div>
 
-    <!-- ÖNE ÇIKAN 3-4 ÜRÜN VİTRİNİ -->
+    <!-- ÖNE ÇIKAN İLK 3-4 ÜRÜN -->
     <section class="section-wrapper">
       <div class="section-header">
         <span class="section-subtitle">Seçkin Seçimler</span>
-        <h2>Öne Çkan Tasarımlarımız</h2>
+        <h2>Öne Çıkan Tasarımlarımız</h2>
         <div class="gold-divider"></div>
-        <p>En çok tercih edilen atölye modellerimizden bir kesit. Tüm koleksiyonu görmek için aşağıdaki butona tıklayabilirsiniz.</p>
+        <p>En çok tercih edilen atölye modellerimizden bir kesit.</p>
       </div>
 
-      <div class="products-grid" id="homeFeaturedProductsGrid">
-        <!-- İlk 3-4 ürün dinamik olarak buraya basılır -->
-      </div>
+      <div class="products-grid" id="homeFeaturedProductsGrid"></div>
 
       <div style="text-align: center; margin-top: 50px;">
         <button class="btn-primary" onclick="switchPage('collection')">Tüm Koleksiyonu Gör →</button>
@@ -434,7 +443,7 @@
         <span class="section-subtitle">Seçkin Parçalar</span>
         <h2>Mücevher Koleksiyonumuz</h2>
         <div class="gold-divider"></div>
-        <p>Modellerimizi inceleyebilir, detaylı video ve fotoğraflarını görüntüleyerek atölyemizden randevu talep edebilirsiniz[cite: 1].</p>
+        <p>Video ve fotoğrafları inceleyerek atölyemizden randevu talep edebilirsiniz[cite: 1].</p>
       </div>
 
       <div class="catalog-controls">
@@ -450,9 +459,7 @@
         </div>
       </div>
 
-      <div class="products-grid" id="productsGridContainer">
-        <!-- Tüm ürünler listelenir -->
-      </div>
+      <div class="products-grid" id="productsGridContainer"></div>
     </section>
   </div>
 
@@ -469,7 +476,7 @@
       <div class="custom-studio-grid">
         <div>
           <h3 style="font-size: 24px; color: var(--text-main); margin-bottom: 14px;">Atölye Süreci</h3>
-          <p style="color: var(--text-muted); font-size: 13.5px; margin-bottom: 25px;">Siteden doğrudan satış veya kargo yoktur; talebiniz üzerine randevu oluşturulur[cite: 1].</p>
+          <p style="color: var(--text-muted); font-size: 13.5px; margin-bottom: 25px;">Siteden doğrudan satış veya kargo yoktur; randevu ile çalışılır[cite: 1].</p>
           <div class="custom-steps">
             <div class="step-item">
               <div class="step-num">I</div>
@@ -648,7 +655,7 @@
     <div class="modal-box">
       <button class="modal-close" onclick="closeModal('adminLoginModal')">&times;</button>
       <h3 class="modal-title">Yönetici Girişi</h3>
-      <p class="modal-subtitle">Ürün ve video/fotoğraf eklemek için şifrenizi girin.</p>
+      <p class="modal-subtitle">Ürün ve medya eklemek için şifrenizi girin.</p>
       <form class="luxury-form" onsubmit="processAdminLogin(event)">
         <div class="form-group">
           <label>Şifre</label>
@@ -659,14 +666,17 @@
     </div>
   </div>
 
+  <!-- ŞİFRE DEĞİŞTİRME (ŞİFRE TEKRAR ALANI İLE) -->
   <div id="changePasswordModal" class="modal-overlay">
     <div class="modal-box">
       <button class="modal-close" onclick="closeModal('changePasswordModal')">&times;</button>
       <h3 class="modal-title">Şifre Değiştir</h3>
+      <p class="modal-subtitle">Yeni şifrenizi iki kez girerek doğrulayın.</p>
       <form class="luxury-form" onsubmit="processPasswordChange(event)">
         <div class="form-group"><label>Mevcut Şifre</label><input type="password" id="oldPasswordInput" required></div>
         <div class="form-group"><label>Yeni Şifre</label><input type="password" id="newPasswordInput" required minlength="4"></div>
-        <button type="submit" class="btn-primary" style="width: 100%;">Güncelle</button>
+        <div class="form-group"><label>Yeni Şifre (Tekrar)</label><input type="password" id="confirmNewPasswordInput" required minlength="4"></div>
+        <button type="submit" class="btn-primary" style="width: 100%;">Şifreyi Güncelle</button>
       </form>
     </div>
   </div>
@@ -708,9 +718,10 @@
 
   <script>
     const STORAGE_KEYS = {
-      PRODUCTS: 'robert_jewelry_products_v4',
-      ADMIN_PASS: 'robert_jewelry_admin_pass_v4',
-      ADMIN_SESSION: 'robert_jewelry_admin_logged_in_v4',
+      PRODUCTS: 'robert_jewelry_products_v5',
+      ADMIN_PASS: 'robert_jewelry_admin_pass_v5',
+      ADMIN_SESSION: 'robert_jewelry_admin_logged_in_v5',
+      SESSION_EXP: 'robert_jewelry_admin_exp_v5',
       THEME: 'robert_jewelry_theme'
     };
 
@@ -768,6 +779,7 @@
     let products = [];
     let currentCategory = 'Tümü';
     let isAdminLoggedIn = sessionStorage.getItem(STORAGE_KEYS.ADMIN_SESSION) === 'true';
+    let sessionTimer = null;
 
     function initProducts() {
       const saved = localStorage.getItem(STORAGE_KEYS.PRODUCTS);
@@ -806,7 +818,6 @@
     }
 
     function initTheme() {
-      // Varsayılan aydınlık (light) mod
       const savedTheme = localStorage.getItem(STORAGE_KEYS.THEME) || 'light';
       document.documentElement.setAttribute('data-theme', savedTheme);
       document.querySelector('.theme-toggle-btn').textContent = savedTheme === 'light' ? '🌙' : '☀';
@@ -831,7 +842,6 @@
       });
     }
 
-    // Ana sayfada sadece ilk 3-4 ürünü gösteren fonksiyon
     function renderHomeFeatured() {
       const container = document.getElementById('homeFeaturedProductsGrid');
       if (!container) return;
@@ -869,7 +879,6 @@
       }).join('');
     }
 
-    // Tüm koleksiyonu listeleyen fonksiyon
     function renderProducts() {
       const container = document.getElementById('productsGridContainer');
       if (!container) return;
@@ -933,6 +942,26 @@
       renderProducts();
     }
 
+    // 5 DAKİKA OTURUM YÖNETİMİ
+    function startSessionTimer() {
+      clearInterval(sessionTimer);
+      let totalSeconds = 300; // 5 Dakika
+      const countdownEl = document.getElementById('sessionCountdown');
+
+      sessionTimer = setInterval(() => {
+        totalSeconds--;
+        const mins = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
+        const secs = (totalSeconds % 60).toString().padStart(2, '0');
+        if (countdownEl) countdownEl.textContent = `${mins}:${secs}`;
+
+        if (totalSeconds <= 0) {
+          clearInterval(sessionTimer);
+          adminLogout();
+          showToast('5 dakikalık süre dolduğu için yönetici oturumu otomatik kapatıldı.');
+        }
+      }, 1000);
+    }
+
     function updateAdminUI() {
       const banner = document.getElementById('adminDashboardBar');
       const headerBtn = document.getElementById('adminHeaderBtn');
@@ -940,10 +969,12 @@
         banner.classList.add('active');
         headerBtn.textContent = 'Yönetici Aktif';
         headerBtn.classList.add('logged-in');
+        startSessionTimer();
       } else {
         banner.classList.remove('active');
         headerBtn.textContent = 'Yönetici Girişi';
         headerBtn.classList.remove('logged-in');
+        clearInterval(sessionToken = null);
       }
       renderHomeFeatured();
       renderProducts();
@@ -963,15 +994,44 @@
         sessionStorage.setItem(STORAGE_KEYS.ADMIN_SESSION, 'true');
         closeModal('adminLoginModal');
         updateAdminUI();
-        showToast('Yönetici girişi başarılı.');
+        showToast('Yönetici girişi başarılı. (5 dakika oturum süresi başladı)');
       } else { showToast('Hatalı şifre!'); }
     }
 
     function adminLogout() {
       isAdminLoggedIn = false;
       sessionStorage.removeItem(STORAGE_KEYS.ADMIN_SESSION);
+      clearInterval(sessionTimer);
       updateAdminUI();
       showToast('Oturum kapatıldı.');
+    }
+
+    function processPasswordChange(e) {
+      e.preventDefault();
+      const oldPass = document.getElementById('oldPasswordInput').value;
+      const newPass = document.getElementById('newPasswordInput').value;
+      const confirmPass = document.getElementById('confirmNewPasswordInput').value;
+      const actual = localStorage.getItem(STORAGE_KEYS.ADMIN_PASS) || 'robert1453';
+
+      if (oldPass !== actual) {
+        showToast('Mevcut şifre hatalı!');
+        return;
+      }
+      if (newPass !== confirmPass) {
+        showToast('Yeni şifreler birbiriyle eşleşmiyor!');
+        return;
+      }
+
+      localStorage.setItem(STORAGE_KEYS.ADMIN_PASS, newPass);
+      closeModal('changePasswordModal');
+      showToast('Yönetici şifresi başarıyla güncellendi!');
+    }
+
+    function openChangePasswordModal() {
+      document.getElementById('oldPasswordInput').value = '';
+      document.getElementById('newPasswordInput').value = '';
+      document.getElementById('confirmNewPasswordInput').value = '';
+      openModal('changePasswordModal');
     }
 
     function openProductModal() {
