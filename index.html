@@ -3,1394 +3,375 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#11100e">
-<title>ROBERT JEWELRY</title>
-
+<title>ROBERT JEWELRY | Özel Tasarım Takılar</title>
+<meta name="description" content="Robert Jewelry ile kişiye özel takılar, isimli kolyeler ve özel tasarım mücevherler.">
 <style>
 :root {
-  --gold: #c99a42;
-  --gold2: #f4d58b;
-  --ink: #171512;
-  --paper: #faf8f4;
-  --line: #e9e2d7;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: Arial, sans-serif;
-}
-
-button, input, select, textarea {
-  font: inherit;
-}
-
-button {
-  cursor: pointer;
-}
-
-.topline {
-  height: 3px;
-  background: linear-gradient(90deg,#8b5b13,#f5dc9a,#a87522);
-}
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: #fffdf9ed;
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--line);
-}
-
-.nav {
-  max-width: 1200px;
-  margin: auto;
-  padding: 12px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  color: inherit;
-}
-
-.brand img {
-  width: 54px;
-  height: 54px;
-  object-fit: contain;
-}
-
-.brand strong {
-  font-family: Georgia, serif;
-  letter-spacing: 4px;
-  font-size: 19px;
-}
-
-.brand small {
-  display: block;
-  color: var(--gold);
-  letter-spacing: 5px;
-  font-size: 10px;
-  margin-top: 4px;
-}
-
-.navlinks {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.navlinks a {
-  color: #514b43;
-  text-decoration: none;
-  font-size: 13px;
-}
-
-.btn {
-  border: 0;
-  border-radius: 3px;
-  padding: 12px 18px;
-  background: var(--ink);
-  color: white;
-  transition: .2s;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-  background: #9a6b24;
-}
-
-.btn.gold {
-  background: linear-gradient(120deg,#a87522,#e5c477);
-  color: #1d160b;
-}
-
-.btn.ghost {
-  background: transparent;
-  border: 1px solid var(--line);
-  color: var(--ink);
-}
-
-.btn.small {
-  padding: 8px 12px;
-  font-size: 12px;
-}
-
-.hero {
-  min-height: 570px;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  padding: 70px 24px;
-  background: radial-gradient(
-    ellipse at 50% 25%,
-    #fff 0,
-    #f7f0e4 54%,
-    #eee4d5 100%
-  );
-  position: relative;
-  overflow: hidden;
-}
-
-.hero:before,
-.hero:after {
-  content: "✧";
-  position: absolute;
-  color: #d4ae65;
-  font-size: 150px;
-  opacity: .13;
-}
-
-.hero:before {
-  left: 8%;
-  top: 15%;
-}
-
-.hero:after {
-  right: 9%;
-  bottom: 8%;
-}
-
-.hero-inner {
-  max-width: 760px;
-  position: relative;
-}
-
-.eyebrow {
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  color: #a87522;
-  font-size: 11px;
-}
-
-.hero h1 {
-  font: clamp(42px,7vw,76px)/1.05 Georgia,serif;
-  font-weight: 400;
-  margin: 20px 0;
-}
-
-.hero h1 span {
-  color: #ad7a2d;
-}
-
-.hero p {
-  max-width: 570px;
-  margin: 0 auto 28px;
-  color: #6e675f;
-  line-height: 1.8;
-  font-size: 15px;
-}
-
-.hero-mark {
-  width: 104px;
-  height: 104px;
-  object-fit: contain;
-  margin-bottom: 20px;
-}
-
-.section {
-  max-width: 1200px;
-  margin: auto;
-  padding: 75px 24px;
-}
-
-.section-head {
-  text-align: center;
-  margin-bottom: 34px;
-}
-
-.section-head h2 {
-  font: 40px Georgia,serif;
-  font-weight: 400;
-  margin: 10px 0;
-}
-
-.section-head p {
-  color: #77716a;
-  font-size: 14px;
-}
-
-.toolbar {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 22px;
-}
-
-.search {
-  max-width: 330px;
-  width: 100%;
-  padding: 12px 14px;
-  border: 1px solid var(--line);
-  background: white;
-}
-
-.filters {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.filter {
-  border: 1px solid var(--line);
-  background: white;
-  padding: 10px 14px;
-  color: #625b52;
-  font-size: 12px;
-}
-
-.filter.active {
-  background: #211d17;
-  color: white;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3,minmax(0,1fr));
-  gap: 22px;
-}
-
-.product {
-  background: white;
-  border: 1px solid #eee8df;
-  transition: .25s;
-  overflow: hidden;
-}
-
-.product:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 16px 35px #3d2c1410;
-}
-
-.product-img {
-  height: 245px;
-  background: linear-gradient(135deg,#f4eee3,#fff);
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-}
-
-.product-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.placeholder {
-  font: 50px Georgia;
-  color: #c5a05d;
-}
-
-.product-info {
-  padding: 18px;
-}
-
-.product-info .type {
-  color: #a87522;
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.product-info h3 {
-  font: 23px Georgia,serif;
-  font-weight: 400;
-  margin: 9px 0;
-}
-
-.price {
-  font-size: 17px;
-  font-weight: 600;
-}
-
-.product-info small {
-  color: #77716a;
-}
-
-.empty {
-  grid-column: 1/-1;
-  text-align: center;
-  padding: 55px 20px;
-  color: #77716a;
-  background: white;
-  border: 1px dashed var(--line);
-}
-
-.about {
-  background: #211d17;
-  color: #f8f3e9;
-}
-
-.about-inner {
-  max-width: 850px;
-  margin: auto;
-  text-align: center;
-  padding: 68px 24px;
-}
-
-.about h2 {
-  font: 38px Georgia,serif;
-  font-weight: 400;
-}
-
-.about p {
-  color: #c9c0b2;
-  line-height: 1.9;
-}
-
-footer {
-  background: #15130f;
-  color: #b9b0a2;
-  text-align: center;
-  padding: 30px 20px;
-  font-size: 12px;
-  letter-spacing: 1px;
-}
-
-.modal {
-  position: fixed;
-  inset: 0;
-  background: #0b0907a8;
-  z-index: 30;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 18px;
-}
-
-.modal.show {
-  display: flex;
-}
-
-.panel {
-  background: #fffdf9;
-  width: min(520px,100%);
-  max-height: 90vh;
-  overflow: auto;
-  padding: 28px;
-}
-
-.panel.wide {
-  width: min(850px,100%);
-}
-
-.panel-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 22px;
-}
-
-.panel-head h2 {
-  font: 27px Georgia;
-  margin: 0;
-}
-
-.x {
-  border: 0;
-  background: none;
-  font-size: 25px;
-  color: #777;
-}
-
-.field {
-  display: grid;
-  gap: 7px;
-  margin: 14px 0;
-}
-
-.field label {
-  font-size: 12px;
-  color: #655d52;
-}
-
-.field input,
-.field select,
-.field textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid var(--line);
-  background: white;
-}
-
-.field textarea {
-  min-height: 80px;
-}
-
-.row2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.hint {
-  font-size: 12px;
-  color: #81796e;
-  line-height: 1.6;
-}
-
-.adminbar {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-
-.admin-list {
-  display: grid;
-  gap: 8px;
-}
-
-.admin-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  padding: 12px;
-  background: #f7f3ec;
-}
-
-.admin-item strong {
-  font-family: Georgia;
-}
-
-.admin-item small {
-  display: block;
-  color: #77716a;
-  margin-top: 4px;
-}
-
-.admin-actions {
-  display: flex;
-  gap: 6px;
-}
-
-.toast {
-  position: fixed;
-  bottom: 22px;
-  left: 50%;
-  transform: translate(-50%,20px);
-  opacity: 0;
-  pointer-events: none;
-  background: #211d17;
-  color: white;
-  padding: 12px 18px;
-  z-index: 50;
-  transition: .25s;
-  font-size: 13px;
-}
-
-.toast.show {
-  opacity: 1;
-  transform: translate(-50%,0);
-}
-
-.reveal {
-  animation: rise .7s both;
-}
-
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media(max-width:800px) {
-  .grid {
-    grid-template-columns: repeat(2,minmax(0,1fr));
-  }
-
-  .navlinks {
-    gap: 12px;
-  }
-
-  .navlinks a {
-    display: none;
-  }
-}
-
-@media(max-width:540px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .product-img {
-    height: 260px;
-  }
-
-  .brand strong {
-    font-size: 16px;
-  }
-
-  .hero {
-    min-height: 520px;
-  }
-
-  .row2 {
-    grid-template-columns: 1fr;
-  }
-
-  .section {
-    padding: 55px 16px;
-  }
-
-  .nav {
-    padding: 10px 15px;
-  }
-}
+  --pink: #f5a9c7;
+  --purple: #b9a4e8;
+  --gold: #c49a45;
+  --gold-dark: #a37b33;
+  --cream: #fff8ef;
+  --dark: #42363d;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color:var(--dark);
+  background:#fffaf6;
+}
+header{
+  position:sticky;top:0;z-index:10;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(12px);
+  box-shadow:0 4px 20px rgba(0,0,0,.05);
+  border-bottom:1px solid #f2e2ec;
+}
+.nav{
+  max-width:1200px;margin:auto;padding:12px 25px;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:15px;flex-wrap:wrap;
+}
+.logo{display:flex;align-items:center;gap:12px;font-weight:900;color:#7a4f68;letter-spacing:1px;font-size:18px}
+.logo img{width:50px;height:50px;object-fit:contain;border-radius:50%}
+nav{display:flex;gap:8px;flex-wrap:wrap}
+nav a{
+  text-decoration:none;color:#66545f;font-weight:600;
+  font-size:14px;padding:10px 16px;border-radius:25px;
+  transition:.25s;
+}
+nav a:hover,nav a.active{
+  background:#fce2ed;color:#9e3f70;
+  transform:translateY(-2px);
+}
+.hero{
+  max-width:1200px;margin:30px auto;padding:60px 40px;
+  border-radius:30px;
+  background:linear-gradient(135deg,#fff0f5,#f4eaff,#fff7ee);
+  border:1px solid #f6e1ed;
+  display:grid;grid-template-columns:1.3fr .7fr;
+  align-items:center;gap:30px;overflow:hidden;
+  box-shadow:0 10px 30px rgba(196,154,69,.08);
+}
+.hero-tag{
+  display:inline-block;padding:6px 14px;background:#fce2ed;color:#9e3f70;
+  font-size:12px;font-weight:700;border-radius:20px;letter-spacing:1px;margin-bottom:10px;text-transform:uppercase;
+}
+.hero h1{font-size:clamp(32px,4.5vw,52px);margin:10px 0 20px 0;color:#5a3f51;line-height:1.2}
+.hero p{font-size:17px;line-height:1.7;color:#6e5d67;margin-bottom:25px}
+.hero-badge-box{
+  background:white;padding:30px;border-radius:24px;box-shadow:0 10px 25px rgba(0,0,0,.04);
+  text-align:center;border:1px solid #f0dbe6;position:relative;
+}
+.hero-badge-box h3{color:#7a4f68;margin-bottom:8px;font-size:22px}
+.hero-badge-box p{color:#8c7882;font-size:14px;margin:0}
+.btn{
+  display:inline-block;text-decoration:none;border:0;cursor:pointer;
+  padding:14px 26px;border-radius:30px;font-weight:600;font-size:14px;
+  background:linear-gradient(100deg,#c982a5,#9e75d1);
+  color:white;margin:5px 8px 5px 0;transition:.25s;
+  box-shadow:0 4px 15px rgba(158,117,209,.2);
+}
+.btn:hover{transform:translateY(-3px);filter:brightness(1.05);box-shadow:0 6px 20px rgba(158,117,209,.35)}
+.btn.gold{
+  background:linear-gradient(100deg,#d4af37,#aa8228);
+  box-shadow:0 4px 15px rgba(212,175,55,.2);
+}
+.section{max-width:1200px;margin:50px auto;padding:0 22px}
+.section-title{text-align:center;margin-bottom:35px}
+.section-title h2{font-size:30px;color:#664759;margin-bottom:8px}
+.section-title p{color:#8c7984;font-size:15px;margin:0}
+.stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  max-width:1100px;margin:40px auto;padding:0 22px;
+}
+.stat{
+  text-align:center;background:white;padding:28px 15px;
+  border-radius:20px;box-shadow:0 6px 20px rgba(122,79,104,.06);
+  border:1px solid #f4e3ed;
+}
+.stat strong{display:block;font-size:32px;color:#9e3f70;margin-bottom:5px}
+.stat span{font-size:14px;color:#8c7882;font-weight:500}
+.cards{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:25px;
+}
+.card{
+  background:white;border-radius:24px;padding:25px;
+  box-shadow:0 8px 25px rgba(121,86,107,.07);
+  border:1px solid #f2e1ec;transition:.3s;
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(197,140,167,.2)}
+.product-visual{
+  height:170px;border-radius:18px;
+  background:linear-gradient(135deg,#fff5f8,#f4eeff);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;color:#a87a95;font-size:16px;letter-spacing:1px;
+  border:1px solid #f7e4ee;margin-bottom:18px;
+}
+.card h3{color:#6e4b5f;margin-top:0;margin-bottom:10px;font-size:18px}
+.card p{line-height:1.6;color:#7e7078;font-size:14px;margin-bottom:20px}
+.page{display:none;animation:appear .4s ease}
+.page.active{display:block}
+@keyframes appear{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+form{display:grid;gap:15px;max-width:600px;margin:auto}
+input,textarea,select{
+  padding:14px 18px;border:1px solid #e8d2df;border-radius:14px;
+  font:inherit;background:white;width:100%;color:var(--dark);outline:none;
+  transition:.2s;
+}
+input:focus,textarea:focus,select:focus{border-color:#c982a5;box-shadow:0 0 0 3px rgba(201,130,165,.15)}
+textarea{min-height:130px;resize:vertical}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.map{width:100%;height:340px;border:0;border-radius:20px;border:1px solid #f2e2ec}
+footer{
+  background:linear-gradient(100deg,#f7e3ef,#efe5fb);
+  text-align:center;padding:40px 20px;margin-top:60px;
+  border-top:1px solid #eedae9;
+}
+footer h2{color:#6e4b5f;font-size:20px;margin-bottom:8px}
+footer p{color:#826e7b;font-size:14px;margin:8px 0}
+footer a{color:#9e3f70;text-decoration:none;font-weight:600}
+footer a:hover{text-decoration:underline}
+.whatsapp-float{
+  position:fixed;right:25px;bottom:25px;background:#25d366;color:white;
+  padding:14px 22px;border-radius:35px;text-decoration:none;font-weight:600;
+  box-shadow:0 6px 20px rgba(37,211,102,.3);z-index:20;transition:.2s;
+  display:flex;align-items:center;gap:8px;font-size:14px;
+}
+.whatsapp-float:hover{transform:scale(1.05);background:#22bf5b}
+@media(max-width:760px){
+  .hero{grid-template-columns:1fr;text-align:center;padding:40px 20px}
+  .cards{grid-template-columns:1fr 1fr}
+  .stats{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  nav{justify-content:center}
+  .nav{justify-content:center}
+}
+@media(max-width:480px){.cards{grid-template-columns:1fr}}
 </style>
 </head>
-
 <body>
 
-<div class="topline"></div>
-
 <header>
-<nav class="nav">
-
-<a class="brand" href="#">
-<img id="navLogo" alt="Robert Jewelry logo">
-<span>
-<strong>ROBERT</strong>
-<small>JEWELRY</small>
-</span>
-</a>
-
-<div class="navlinks">
-<a href="#koleksiyon">Koleksiyon</a>
-<a href="#hakkimizda">Hikâyemiz</a>
-<button class="btn small ghost" onclick="openLogin()">
-Yönetici Girişi
-</button>
-</div>
-
-</nav>
+ <div class="nav">
+  <div class="logo">
+   <img src="logo.png" alt="Robert Jewelry Logo">
+   <span>ROBERT JEWELRY</span>
+  </div>
+  <nav>
+   <a href="#" class="active" onclick="showPage('home',this)">Ana Sayfa</a>
+   <a href="#" onclick="showPage('collection',this)">Koleksiyon</a>
+   <a href="#" onclick="showPage('custom',this)">Özel Tasarım</a>
+   <a href="#" onclick="showPage('about',this)">Hakkımızda</a>
+   <a href="#" onclick="showPage('faq',this)">SSS</a>
+   <a href="#" onclick="showPage('contact',this)">İletişim</a>
+  </nav>
+ </div>
 </header>
 
 <main>
+<!-- ANA SAYFA -->
+<div id="home" class="page active">
+ <section class="hero">
+  <div>
+   <span class="hero-tag">Tarzını Kendin Yarat</span>
+   <h1>Her Takının<br>Bir Hikâyesi Var.</h1>
+   <p>Tarzını yansıtan özel tasarımlar, zarif detaylar ve sana özel takılar Robert Jewelry'de!</p>
+   <button class="btn" onclick="showPage('collection')">Koleksiyonu Keşfet</button>
+   <button class="btn gold" onclick="showPage('custom')">Kendi Takını Tasarla</button>
+  </div>
+  <div class="hero-badge-box">
+   <h3>ROBERT JEWELRY</h3>
+   <p>Özel Tasarım Mücevher Atölyesi</p>
+  </div>
+ </section>
 
-<section class="hero">
-<div class="hero-inner reveal">
+ <div class="stats">
+  <div class="stat"><strong class="counter" data-target="5000">0</strong><span>Mutlu Müşteri</span></div>
+  <div class="stat"><strong class="counter" data-target="100">0</strong><span>Özgün Tasarım</span></div>
+  <div class="stat"><strong class="counter" data-target="100">0</strong><span>Şıklık ve Zarafet</span></div>
+ </div>
 
-<img class="hero-mark" id="heroLogo" alt="Robert Jewelry">
-
-<div class="eyebrow">
-Zamansız zarafet · Özenle seçilmiş
+ <section class="section">
+  <div class="section-title">
+   <h2>Öne Çıkan Koleksiyon</h2>
+   <p>En sevilen tasarımlarımızı keşfet.</p>
+  </div>
+  <div class="cards">
+   <div class="card"><div class="product-visual">ZARİF KOLYELER</div><h3>Zarif Kolyeler</h3><p>Her kombine uyum sağlayan özel kolye tasarımları.</p></div>
+   <div class="card"><div class="product-visual">ŞIK YÜZÜKLER</div><h3>Şık Yüzükler</h3><p>Tarzını tamamlayan zarif yüzük seçenekleri.</p></div>
+   <div class="card"><div class="product-visual">ÖZEL BİLEKLİKLER</div><h3>Özel Bileklikler</h3><p>Günlük stiline ışıltı katan bileklikler.</p></div>
+  </div>
+  <div style="text-align:center;margin-top:30px">
+   <button class="btn" onclick="showPage('collection')">Tüm Koleksiyonu Gör</button>
+  </div>
+ </section>
 </div>
 
-<h1>Işıltınızı <span>keşfedin.</span></h1>
-
-<p>
-Her detayında ustalık, her çizgisinde zarafet.
-Robert Jewelry koleksiyonunu keşfedin.
-</p>
-
-<a class="btn gold" href="#koleksiyon"
-style="display:inline-block;text-decoration:none">
-Koleksiyonu Keşfet
-</a>
-
-</div>
-</section>
-
-<section class="section" id="koleksiyon">
-
-<div class="section-head">
-<div class="eyebrow">Robert Jewelry seçkisi</div>
-<h2>Koleksiyon</h2>
-<p>Size özel parçalar, zarif detaylar.</p>
+<!-- KOLEKSIYON -->
+<div id="collection" class="page">
+ <section class="section">
+  <div class="section-title">
+   <h2>Koleksiyonumuz</h2>
+   <p>Zarafetini tamamlayacak tasarımlar.</p>
+  </div>
+  <div class="cards">
+   <div class="card"><div class="product-visual">İNCİ KOLYE</div><h3>İnci Kolye</h3><p>Zamansız ve zarif bir görünüm.</p><a class="btn" href="https://wa.me/905312467931?text=İnci%20kolye%20hakkında%20bilgi%20almak%20istiyorum" target="_blank">Bilgi Al</a></div>
+   <div class="card"><div class="product-visual">TAŞLI KOLYE</div><h3>Taşlı Kolye</h3><p>Işıltılı ve dikkat çekici tasarım.</p><a class="btn" href="https://wa.me/905312467931" target="_blank">Bilgi Al</a></div>
+   <div class="card"><div class="product-visual">ZARİF YÜZÜK</div><h3>Zarif Yüzük</h3><p>Şıklığı sevenlere özel.</p><a class="btn" href="https://wa.me/905312467931" target="_blank">Bilgi Al</a></div>
+   <div class="card"><div class="product-visual">ÇİÇEK BİLEKLİK</div><h3>Çiçek Bileklik</h3><p>Romantik ve renkli detaylar.</p><a class="btn" href="https://wa.me/905312467931" target="_blank">Bilgi Al</a></div>
+   <div class="card"><div class="product-visual">YILDIZ KOLYE</div><h3>Yıldız Kolye</h3><p>Her anına küçük bir ışıltı.</p><a class="btn" href="https://wa.me/905312467931" target="_blank">Bilgi Al</a></div>
+   <div class="card"><div class="product-visual">HEDİYE SETİ</div><h3>Hediye Setleri</h3><p>Sevdiklerine özel hediye seçenekleri.</p><a class="btn" href="https://wa.me/905312467931" target="_blank">Bilgi Al</a></div>
+  </div>
+ </section>
 </div>
 
-<div class="toolbar">
-<input class="search" id="search"
-placeholder="Ürün veya model ara..."
-oninput="renderProducts()">
-
-<div class="filters" id="filters"></div>
+<!-- KİŞİYE ÖZEL -->
+<div id="custom" class="page">
+ <section class="section">
+  <div class="section-title">
+   <h2>Kişiye Özel Tasarım</h2>
+   <p>Hayalindeki takıyı birlikte tasarlayalım!</p>
+  </div>
+  <div class="cards" style="margin-bottom:30px">
+   <div class="card"><div class="product-visual">İSİMLİ KOLYE</div><h3>İsimli Kolye</h3><p>İsmini veya sevdiğin bir kelimeyi taşı.</p></div>
+   <div class="card"><div class="product-visual">HARFLİ BİLEKLİK</div><h3>Harfli Bileklik</h3><p>Sana özel harf ve sembollerle tasarla.</p></div>
+   <div class="card"><div class="product-visual">ÖZEL TAŞ</div><h3>Özel Taş Seçimi</h3><p>Renk ve detayları kendi zevkine göre seç.</p></div>
+  </div>
+  <div class="card" style="max-width:650px;margin:auto">
+   <h3 style="text-align:center;margin-bottom:20px;color:#6e4b5f">Tasarımını Bize Anlat</h3>
+   <form onsubmit="sendCustom(event)">
+    <input id="cname" placeholder="Adınız" required>
+    <select id="ctype">
+     <option>İsimli kolye</option><option>Harfli bileklik</option>
+     <option>Özel yüzük</option><option>Başka bir tasarım</option>
+    </select>
+    <textarea id="cdesc" placeholder="Nasıl bir takı istiyorsunuz? Renk, harf, model detayları..." required></textarea>
+    <button class="btn gold" type="submit" style="width:100%;text-align:center;justify-content:center;margin:0">WhatsApp ile Gönder</button>
+   </form>
+  </div>
+ </section>
 </div>
 
-<div class="grid" id="products"></div>
-
-</section>
-
-<section class="about" id="hakkimizda">
-<div class="about-inner">
-<div class="eyebrow">Robert Jewelry</div>
-<h2>Zarafet detaylarda saklıdır.</h2>
-<p>
-Şıklığı sadelikle buluşturan koleksiyonumuzda,
-her parçanın kendine özgü bir hikâyesi var.
-Robert Jewelry dünyasına hoş geldiniz.
-</p>
+<!-- HAKKIMIZDA -->
+<div id="about" class="page">
+ <section class="section">
+  <div class="section-title">
+   <h2>Hakkımızda</h2>
+   <p>Robert Jewelry dünyasına hoş geldin.</p>
+  </div>
+  <div class="card" style="max-width:800px;margin:auto">
+   <h3>Biz Kimiz?</h3>
+   <p>Robert Jewelry olarak takıların yalnızca bir aksesuar değil, kişiliği ve özel anları yansıtan küçük hikâyeler olduğuna inanıyoruz.</p>
+   <p>Amacımız; zarif, şık ve kişiye özel tasarımlarla tarzınızı tamamlamanıza yardımcı olmak.</p>
+   <p>İsimli kolyelerden özel tasarım bilekliklere kadar farklı fikirleri birlikte hayata geçiriyoruz.</p>
+  </div>
+ </section>
 </div>
-</section>
 
+<!-- SSS -->
+<div id="faq" class="page">
+ <section class="section">
+  <div class="section-title"><h2>Sıkça Sorulan Sorular</h2></div>
+  <div class="card" style="max-width:800px;margin:auto">
+   <h3 style="color:#7a4f68">Kişiye özel takı yaptırabilir miyim?</h3>
+   <p>Evet! İsim, harf ve tasarım fikirlerini WhatsApp üzerinden bize iletebilirsin.</p>
+   <hr style="border:0;border-top:1px solid #f2e2ec;margin:15px 0">
+   <h3 style="color:#7a4f68">Sipariş nasıl verebilirim?</h3>
+   <p>Beğendiğin ürün için Bilgi Al butonuna basarak WhatsApp üzerinden iletişime geçebilirsin.</p>
+   <hr style="border:0;border-top:1px solid #f2e2ec;margin:15px 0">
+   <h3 style="color:#7a4f68">Ürün fiyatlarını nasıl öğrenebilirim?</h3>
+   <p>Güncel fiyat ve stok bilgisi için bizimle iletişime geçebilirsin.</p>
+   <hr style="border:0;border-top:1px solid #f2e2ec;margin:15px 0">
+   <h3 style="color:#7a4f68">Özel tasarım ne kadar sürer?</h3>
+   <p>Tasarımın detaylarına göre süre değişebilir. Bilgi almak için bize yazabilirsin.</p>
+  </div>
+ </section>
+</div>
+
+<!-- İLETİŞİM -->
+<div id="contact" class="page">
+ <section class="section">
+  <div class="section-title">
+   <h2>Bize Ulaşın</h2>
+   <p>Sorularınız ve siparişleriniz için buradayız.</p>
+  </div>
+  <div class="contact-grid">
+   <div class="card">
+    <h3>İletişim Bilgileri</h3>
+    <p><strong>WhatsApp:</strong> +90 531 246 79 31</p>
+    <p><strong>Konum:</strong> Sefa Restaurant'ın 2 kat üstü, Cağaloğlu, İstanbul</p>
+    <div style="margin-top:25px;display:flex;gap:10px;flex-wrap:wrap">
+     <a class="btn" href="https://wa.me/905312467931" target="_blank">WhatsApp'tan Yaz</a>
+     <a class="btn gold" href="https://www.google.com/maps/search/?api=1&query=Sefa+Restaurant+Ca%C4%9Falo%C4%9Flu+Fatih+Istanbul" target="_blank">Yol Tarifi Al</a>
+    </div>
+   </div>
+   <div class="card">
+    <h3>Haritada Konumumuz</h3>
+    <iframe class="map" loading="lazy"
+     src="https://maps.google.com/maps?q=Sefa%20Restaurant%20Ca%C4%9Falo%C4%9Flu%20Fatih%20Istanbul&t=&z=16&ie=UTF8&iwloc=&output=embed">
+    </iframe>
+   </div>
+  </div>
+ </section>
+</div>
 </main>
 
 <footer>
-© <span id="year"></span> ROBERT JEWELRY · TÜM HAKLARI SAKLIDIR
+ <h2>ROBERT JEWELRY</h2>
+ <p>Tarzını yansıtan özel tasarımlar.</p>
+ <p>
+  <a href="#" onclick="showPage('about')">Hakkımızda</a> &bull;
+  <a href="#" onclick="showPage('collection')">Koleksiyon</a> &bull;
+  <a href="#" onclick="showPage('contact')">İletişim</a>
+ </p>
+ <p style="font-size:13px;color:#9c8593">&copy; 2026 Robert Jewelry. Tüm hakları saklıdır.</p>
 </footer>
 
-<!-- YÖNETİCİ GİRİŞİ -->
-
-<div class="modal" id="loginModal">
-<div class="panel">
-
-<div class="panel-head">
-<h2>Yönetici Girişi</h2>
-<button class="x" onclick="closeModal('loginModal')">×</button>
-</div>
-
-<form id="loginForm">
-<div class="field">
-<label>Yönetici şifresi</label>
-<input id="loginPassword" type="password"
-autocomplete="current-password" required
-placeholder="Şifrenizi girin">
-</div>
-
-<button class="btn gold" style="width:100%">
-Giriş Yap
-</button>
-</form>
-
-<p class="hint">
-Yönetim panelinden ürün ekleyebilir,
-fiyatları güncelleyebilir ve yönetici
-şifresini değiştirebilirsiniz.
-</p>
-
-</div>
-</div>
-
-<!-- YÖNETİM PANELİ -->
-
-<div class="modal" id="adminModal">
-<div class="panel wide">
-
-<div class="panel-head">
-<h2>Yönetim Paneli</h2>
-<button class="x" onclick="closeModal('adminModal')">×</button>
-</div>
-
-<div class="adminbar">
-<button class="btn gold small" onclick="showProductForm()">
-+ Yeni Ürün
-</button>
-
-<button class="btn ghost small" onclick="showPasswordForm()">
-Şifre Değiştir
-</button>
-
-<button class="btn ghost small" onclick="exportData()">
-Yedek İndir
-</button>
-
-<button class="btn ghost small"
-onclick="document.getElementById('importFile').click()">
-Yedek Yükle
-</button>
-
-<input id="importFile" type="file"
-accept="application/json" hidden
-onchange="importData(event)">
-</div>
-
-<div id="adminContent"></div>
-
-<p class="hint" style="margin-top:18px">
-Bu tek dosyalık sürümde ürünler ve şifre yalnızca
-bu tarayıcıda saklanır. Gerçek güvenli giriş ve
-cihazlar arası ortak kullanım için sunucu gerekir.
-</p>
-
-</div>
-</div>
-
-<div class="toast" id="toast"></div>
+<a href="https://wa.me/905312467931" target="_blank" class="whatsapp-float">
+ <span>WhatsApp Hattı</span>
+</a>
 
 <script>
-
-// LOGO
-const LOGO_DATA = "logo.png";
-
-document.getElementById('navLogo').src = LOGO_DATA;
-document.getElementById('heroLogo').src = LOGO_DATA;
-document.getElementById('year').textContent = new Date().getFullYear();
-
-
-// ÖRNEK ÜRÜNLER
-
-const DEFAULT_PRODUCTS = [
-{
-id:1,
-name:"Zarif Altın Yüzük",
-category:"Yüzük",
-price:18500,
-currency:"TRY",
-description:"Zamansız çizgilerle tasarlanmış zarif bir parça.",
-image:""
-},
-{
-id:2,
-name:"Işıltı Kolye",
-category:"Kolye",
-price:24900,
-currency:"TRY",
-description:"Her kombine eşlik eden sade ve şık tasarım.",
-image:""
-},
-{
-id:3,
-name:"Klasik Bileklik",
-category:"Bileklik",
-price:31900,
-currency:"TRY",
-description:"Özel anlar için özenle seçilmiş tasarım.",
-image:""
-}
-];
-
-
-// VERİLER
-
-let products = load("rj_products", DEFAULT_PRODUCTS);
-
-let adminPassword =
-localStorage.getItem("rj_admin_password") || "robert1453";
-
-let editingId = null;
-let category = "Tümü";
-
-
-function load(key, fallback) {
-try {
-return JSON.parse(localStorage.getItem(key)) || fallback;
-} catch {
-return fallback;
-}
+function showPage(id,link){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
+ if(link && link.tagName==='A') link.classList.add('active');
+ window.scrollTo({top:0,behavior:'smooth'});
+ return false;
 }
 
-function save() {
-localStorage.setItem("rj_products", JSON.stringify(products));
+function sendCustom(e){
+ e.preventDefault();
+ const name=document.getElementById('cname').value;
+ const type=document.getElementById('ctype').value;
+ const desc=document.getElementById('cdesc').value;
+ const msg=`Merhaba, ben ${name}. Kişiye özel tasarım isteğim: ${type}. Detaylar: ${desc}`;
+ window.open('https://wa.me/905312467931?text='+encodeURIComponent(msg),'_blank');
 }
 
-
-// FİYAT BİÇİMLENDİRME
-
-function money(value, currency) {
-try {
-return new Intl.NumberFormat('tr-TR', {
-style:'currency',
-currency
-}).format(Number(value));
-} catch {
-return Number(value).toLocaleString('tr-TR') + " " + currency;
-}
-}
-
-
-// BİLDİRİM
-
-function toast(message) {
-const t = document.getElementById('toast');
-
-t.textContent = message;
-t.classList.add('show');
-
-setTimeout(() => {
-t.classList.remove('show');
-}, 2400);
-}
-
-
-// GİRİŞ
-
-function openLogin() {
-document.getElementById('loginModal').classList.add('show');
-
-setTimeout(() => {
-document.getElementById('loginPassword').focus();
-}, 100);
-}
-
-function closeModal(id) {
-document.getElementById(id).classList.remove('show');
-}
-
-document.getElementById('loginForm')
-.addEventListener('submit', e => {
-
-e.preventDefault();
-
-if (
-document.getElementById('loginPassword').value === adminPassword
-) {
-
-closeModal('loginModal');
-
-document.getElementById('loginPassword').value = '';
-
-renderAdmin();
-
-document.getElementById('adminModal').classList.add('show');
-
-} else {
-
-toast('Şifre hatalı. Tekrar deneyin.');
-
-}
-
+let counted=false;
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{
+  if(entry.isIntersecting && !counted){
+   counted=true;
+   document.querySelectorAll('.counter').forEach(el=>{
+    const target=Number(el.dataset.target);
+    let current=0;
+    const step=Math.max(1,Math.ceil(target/70));
+    const timer=setInterval(()=>{
+     current+=step;
+     if(current>=target){current=target;clearInterval(timer);}
+     el.textContent=current.toLocaleString('tr-TR')+(target===100?'%':'+');
+    },25);
+   });
+  }
+ });
 });
-
-
-// ÜRÜNLERİ GÖSTER
-
-function renderProducts() {
-
-const term = (
-document.getElementById('search').value || ''
-).toLocaleLowerCase('tr');
-
-const cats = [
-'Tümü',
-...new Set(products.map(p => p.category || 'Diğer'))
-];
-
-document.getElementById('filters').innerHTML =
-cats.map(c => `
-<button class="filter ${category === c ? 'active' : ''}"
-onclick="category=${JSON.stringify(c)};renderProducts()">
-${esc(c)}
-</button>
-`).join('');
-
-
-const filtered = products.filter(p =>
-(category === 'Tümü' || (p.category || 'Diğer') === category)
-&&
-(`${p.name} ${p.category} ${p.description}`)
-.toLocaleLowerCase('tr').includes(term)
-);
-
-
-document.getElementById('products').innerHTML =
-filtered.length
-?
-filtered.map((p,i) => `
-
-<article class="product reveal"
-style="animation-delay:${i*70}ms">
-
-<div class="product-img">
-
-${p.image
-? `<img src="${p.image}" alt="${esc(p.name)}">`
-: '<span class="placeholder">◇</span>'
-}
-
-</div>
-
-<div class="product-info">
-
-<div class="type">${esc(p.category || 'Koleksiyon')}</div>
-
-<h3>${esc(p.name)}</h3>
-
-<div class="price">
-${money(p.price,p.currency || 'TRY')}
-</div>
-
-${p.description
-? `<small>${esc(p.description)}</small>`
-: ''
-}
-
-</div>
-</article>
-
-`).join('')
-
-:
-
-'<div class="empty">Aramanızla eşleşen ürün bulunamadı.</div>';
-
-}
-
-
-// GÜVENLİ METİN
-
-function esc(s) {
-return String(s ?? '').replace(/[&<>"']/g, c => ({
-'&':'&amp;',
-'<':'&lt;',
-'>':'&gt;',
-'"':'&quot;',
-"'":'&#39;'
-}[c]));
-}
-
-
-// YÖNETİM PANELİ
-
-function renderAdmin() {
-
-document.getElementById('adminContent').innerHTML = `
-
-<h3 style="font:22px Georgia;font-weight:400">
-Ürünler (${products.length})
-</h3>
-
-<div class="admin-list">
-
-${products.length
-
-? products.map(p => `
-
-<div class="admin-item">
-
-<div>
-<strong>${esc(p.name)}</strong>
-<small>
-${esc(p.category)} ·
-${money(p.price,p.currency || 'TRY')}
-</small>
-</div>
-
-<div class="admin-actions">
-
-<button class="btn ghost small"
-onclick="editProduct(${p.id})">
-Düzenle
-</button>
-
-<button class="btn small"
-style="background:#8b3434"
-onclick="deleteProduct(${p.id})">
-Sil
-</button>
-
-</div>
-</div>
-
-`).join('')
-
-: '<p>Henüz ürün eklenmemiş.</p>'
-
-}
-
-</div>
-`;
-
-}
-
-
-// ÜRÜN EKLEME VE DÜZENLEME
-
-function showProductForm(p = null) {
-
-editingId = p?.id ?? null;
-
-document.getElementById('adminContent').innerHTML = `
-
-<h3 style="font:22px Georgia;font-weight:400">
-${p ? 'Ürünü Düzenle' : 'Yeni Ürün Ekle'}
-</h3>
-
-<form id="productForm">
-
-<div class="row2">
-
-<div class="field">
-<label>Ürün / model adı *</label>
-
-<input name="name" required
-value="${esc(p?.name || '')}"
-placeholder="Örn. Altın kolye">
-</div>
-
-<div class="field">
-<label>Kategori</label>
-
-<input name="category"
-value="${esc(p?.category || '')}"
-placeholder="Yüzük, kolye, bileklik...">
-</div>
-
-</div>
-
-<div class="row2">
-
-<div class="field">
-<label>Fiyat *</label>
-
-<input name="price"
-type="number"
-min="0"
-step="0.01"
-required
-value="${p?.price ?? ''}">
-</div>
-
-<div class="field">
-<label>Para birimi</label>
-
-<select name="currency">
-
-${['TRY','USD','EUR','GBP','CHF'].map(c => `
-<option ${((p?.currency || 'TRY') === c) ? 'selected' : ''}>
-${c}
-</option>
-`).join('')}
-
-</select>
-</div>
-
-</div>
-
-<div class="field">
-<label>Açıklama</label>
-
-<textarea name="description"
-placeholder="Ürün hakkında kısa bilgi...">${esc(p?.description || '')}</textarea>
-</div>
-
-<div class="field">
-<label>Ürün fotoğrafı</label>
-
-<input name="image"
-type="file"
-accept="image/*">
-
-<small class="hint">
-Fotoğraf seçmek isteğe bağlıdır.
-Küçük görseller önerilir.
-</small>
-</div>
-
-<div class="adminbar">
-
-<button class="btn gold">
-Kaydet
-</button>
-
-<button type="button" class="btn ghost"
-onclick="renderAdmin()">
-Vazgeç
-</button>
-
-</div>
-
-</form>
-`;
-
-
-document.getElementById('productForm')
-.addEventListener('submit', async e => {
-
-e.preventDefault();
-
-const f = e.currentTarget;
-const fd = new FormData(f);
-
-let image = p?.image || '';
-
-const file = f.elements.image.files[0];
-
-if (file) {
-
-if (file.size > 1500000) {
-toast('Fotoğraf 1.5 MB altında olmalı.');
-return;
-}
-
-image = await readImage(file);
-
-}
-
-const item = {
-
-id: editingId ?? Date.now(),
-
-name: fd.get('name').trim(),
-
-category: fd.get('category').trim() || 'Diğer',
-
-price: Number(fd.get('price')),
-
-currency: fd.get('currency'),
-
-description: fd.get('description').trim(),
-
-image
-
-};
-
-
-if (editingId !== null) {
-
-products = products.map(x =>
-x.id === editingId ? item : x
-);
-
-} else {
-
-products.unshift(item);
-
-}
-
-save();
-
-renderProducts();
-renderAdmin();
-
-toast('Ürün kaydedildi.');
-
-});
-
-}
-
-
-// FOTOĞRAF OKUMA
-
-function readImage(file) {
-
-return new Promise((resolve,reject) => {
-
-const r = new FileReader();
-
-r.onload = () => resolve(r.result);
-r.onerror = reject;
-
-r.readAsDataURL(file);
-
-});
-
-}
-
-
-// ÜRÜN DÜZENLEME
-
-function editProduct(id) {
-
-const p = products.find(x => x.id === id);
-
-if (p) showProductForm(p);
-
-}
-
-
-// ÜRÜN SİLME
-
-function deleteProduct(id) {
-
-if (confirm('Bu ürünü silmek istiyor musunuz?')) {
-
-products = products.filter(p => p.id !== id);
-
-save();
-
-renderProducts();
-renderAdmin();
-
-toast('Ürün silindi.');
-
-}
-
-}
-
-
-// ŞİFRE DEĞİŞTİRME
-
-function showPasswordForm() {
-
-document.getElementById('adminContent').innerHTML = `
-
-<h3 style="font:22px Georgia;font-weight:400">
-Yönetici Şifresini Değiştir
-</h3>
-
-<form id="passwordForm">
-
-<div class="field">
-<label>Mevcut şifre</label>
-<input name="old" type="password" required>
-</div>
-
-<div class="field">
-<label>Yeni şifre</label>
-<input name="next" type="password"
-minlength="8" required
-placeholder="En az 8 karakter">
-</div>
-
-<div class="field">
-<label>Yeni şifreyi tekrar girin</label>
-<input name="again" type="password"
-minlength="8" required>
-</div>
-
-<div class="adminbar">
-
-<button class="btn gold">
-Şifreyi Güncelle
-</button>
-
-<button type="button" class="btn ghost"
-onclick="renderAdmin()">
-Vazgeç
-</button>
-
-</div>
-
-</form>
-`;
-
-
-document.getElementById('passwordForm')
-.addEventListener('submit', e => {
-
-e.preventDefault();
-
-const f = e.currentTarget;
-
-if (f.old.value !== adminPassword) {
-toast('Mevcut şifre yanlış.');
-return;
-}
-
-if (f.next.value !== f.again.value) {
-toast('Yeni şifreler eşleşmiyor.');
-return;
-}
-
-adminPassword = f.next.value;
-
-localStorage.setItem(
-"rj_admin_password",
-adminPassword
-);
-
-toast('Şifre bu tarayıcıda güncellendi.');
-
-renderAdmin();
-
-});
-
-}
-
-
-// YEDEK İNDİRME
-
-function exportData() {
-
-const blob = new Blob(
-[
-JSON.stringify({
-products,
-adminPassword
-}, null, 2)
-],
-{
-type:'application/json'
-}
-);
-
-const a = document.createElement('a');
-
-a.href = URL.createObjectURL(blob);
-a.download = 'robert-jewelry-yedek.json';
-
-a.click();
-
-URL.revokeObjectURL(a.href);
-
-}
-
-
-// YEDEK YÜKLEME
-
-function importData(e) {
-
-const file = e.target.files[0];
-
-if (!file) return;
-
-const r = new FileReader();
-
-r.onload = () => {
-
-try {
-
-const d = JSON.parse(r.result);
-
-if (!Array.isArray(d.products)) throw Error();
-
-products = d.products;
-
-if (
-typeof d.adminPassword === 'string'
-&& d.adminPassword.length >= 8
-) {
-
-adminPassword = d.adminPassword;
-
-localStorage.setItem(
-'rj_admin_password',
-adminPassword
-);
-
-}
-
-save();
-
-renderProducts();
-renderAdmin();
-
-toast('Yedek yüklendi.');
-
-} catch {
-
-toast('Yedek dosyası okunamadı.');
-
-}
-
-};
-
-r.readAsText(file);
-
-e.target.value = '';
-
-}
-
-
-// BAŞLAT
-
-renderProducts();
-
+observer.observe(document.querySelector('.stats'));
 </script>
 </body>
 </html>
